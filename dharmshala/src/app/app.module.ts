@@ -12,6 +12,7 @@ import { ProjectsComponent } from './admin/project/projects/projects.component';
 import { GalleryComponent } from './admin/gallery/gallery/gallery.component';
 import { SocialmediaComponent } from './admin/social media/socialmedia/socialmedia.component';
 import { FacilityComponent } from './admin/facility/facility/facility.component';
+import { MemberformComponent } from './admin/member form/memberform/memberform.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FacilityComponent } from './admin/facility/facility/facility.component'
     ProjectsComponent,
     GalleryComponent,
     SocialmediaComponent,
-    FacilityComponent
+    FacilityComponent,
+    MemberformComponent
   ],
   imports: [
     BrowserModule,

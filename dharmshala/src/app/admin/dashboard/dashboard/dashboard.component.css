@@ -1,3 +1,18 @@
 .group-btn{
     background-color: #F1F1F1;
 }
+
+.card-1{
+    order:2px solid #D3EAF2;
+    background-color: #D3EAF2;
+}
+
+.card-2{
+    border:2px solid #D6EDB9;
+    background-color: #D6EDB9;
+}
+
+.card-3{
+    border: 2px solid #FFC58B;
+    background-color: #FFC58B;
+}
