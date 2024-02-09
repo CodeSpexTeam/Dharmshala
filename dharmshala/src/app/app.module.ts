@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,9 @@ import { GalleryComponent } from './admin/gallery/gallery/gallery.component';
 import { SocialmediaComponent } from './admin/social media/socialmedia/socialmedia.component';
 import { FacilityComponent } from './admin/facility/facility/facility.component';
 import { MemberformComponent } from './admin/member form/memberform/memberform.component';
+import { FacilityformComponent } from './admin/facility form/facilityform/facilityform.component';
+import { UploadimageComponent } from './admin/uploadimage/uploadimage.component';
+import { AddprojectsComponent } from './admin/addprojects/addprojects.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +31,16 @@ import { MemberformComponent } from './admin/member form/memberform/memberform.c
     GalleryComponent,
     SocialmediaComponent,
     FacilityComponent,
-    MemberformComponent
+    MemberformComponent,
+    FacilityformComponent,
+    UploadimageComponent,
+    AddprojectsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

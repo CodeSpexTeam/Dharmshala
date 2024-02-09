@@ -95,6 +95,9 @@ namespace dharmshalaAPI.Controllers
             {
                 return BadRequest(new {Massage = "Email is Already Exit!"});
             }
+
+            members.Created = DateTime.Now;
+            members.Updated = DateTime.Now;
             _context.Members.Add(members);
             await _context.SaveChangesAsync();
 

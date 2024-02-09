@@ -9,6 +9,9 @@ import { GalleryComponent } from './admin/gallery/gallery/gallery.component';
 import { SocialmediaComponent } from './admin/social media/socialmedia/socialmedia.component';
 import { FacilityComponent } from './admin/facility/facility/facility.component';
 import { MemberformComponent } from './admin/member form/memberform/memberform.component';
+import { FacilityformComponent } from './admin/facility form/facilityform/facilityform.component';
+import { UploadimageComponent } from './admin/uploadimage/uploadimage.component';
+import { AddprojectsComponent } from './admin/addprojects/addprojects.component';
 
 const routes: Routes = [
   { path: '', component: SigninComponent },
@@ -18,6 +21,9 @@ const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'member-form', component: MemberformComponent},
+  { path: 'facility-form', component: FacilityformComponent},
+  { path: 'upload-image', component: UploadimageComponent},
+  { path: 'add-projects', component: AddprojectsComponent},
   { path: 'social-media', component: SocialmediaComponent },
   { path: 'facility', component: FacilityComponent },
   { path: '**', component: SigninComponent },  // Wildcard route for a 404 page
