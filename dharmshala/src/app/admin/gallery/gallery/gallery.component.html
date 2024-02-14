@@ -14,14 +14,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
+                  <tr *ngFor="let item of galleryList; let indexOfelement=index;" >
+                    <th scope="row">{{indexOfelement+1}}</th>
                     <td>
-                        <img src="" alt="Service-Image">
+                        <img src={{item.image}} alt="Service-Image">
                     </td>
                     <td>
-                        <div style="width: 200px; height: 50px; overflow: hidden;">
-                            <span>Lorem ipsu animi ipsum fuga.</span>
+                        <div style="width: 200px; max-height: 50px; overflow: hidden;">
+                            <span>{{item.title}}</span>
                         </div>
                         
                     </td>
@@ -31,37 +31,14 @@
                                 <a class="btn btn-warning">Edit</a>
                             </div>
                             <div class="col-3">
-                                <a class="btn btn-danger">Delete</a>
+                                <a class="btn btn-danger" (click)="removeImageFromList(item.id)">Delete</a>
                             </div>
                             
                         </div>
                     </td>
                     
                   </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>
-                        <img src="" alt="Service-Image">
-                    </td>
-                    <td>
-                        <div style="width: 200px; height: 50px; overflow: hidden;">
-                            <span>Lorem ipsu animi ipsum fuga.</span>
-                        </div>
-                        
-                    </td>
-                   <td>
-                        <div class="row">
-                            <div class="col-3">
-                                <a class="btn btn-warning">Edit</a>
-                            </div>
-                            <div class="col-3">
-                                <a class="btn btn-danger">Delete</a>
-                            </div>
-                            
-                        </div>
-                    </td>
-                    
-                  </tr>
+                 
                  
                   
                 </tbody>

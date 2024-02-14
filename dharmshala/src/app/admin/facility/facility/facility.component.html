@@ -16,52 +16,26 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>AC Room</td>
+                  <tr *ngFor="let item of facilityDetail; let indexOfelement=index;">
+                    <th scope="row">{{indexOfelement+1}}</th>
+                    <td>{{item.facilityName}}</td>
                     <td>
-                        <img src="" alt="Service-Image">
+                        <img src={{item.image}} alt="Service-Image">
                     </td>
                     <td>
-                        <div style="width: 200px; height: 100px; overflow: hidden;">
-                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis voluptatibus dolor. Ratione vitae, quod dolore dolorem molestiae eaque minima corporis quo voluptatibus adipisci alias ea assumenda, animi ipsum fuga.</span>
+                        <div style="width: 200px; max-height: 100px; overflow: hidden;">
+                            <span>{{item.description}}</span>
                         </div>
                         
                     </td>
-                    <td>400</td>
+                    <td>{{item.fees}}</td>
                     <td>
                         <div class="row">
                             <div class="col-3">
                                 <a class="btn btn-warning">Edit</a>
                             </div>
                             <div class="col-3">
-                                <a class="btn btn-danger">Delete</a>
-                            </div>
-                            
-                        </div>
-                    </td>
-                    
-                  </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>AC Room</td>
-                    <td>
-                        <img src="" alt="Service-Image">
-                    </td>
-                    <td>
-                        <div style="width: 200px; height: 100px; overflow: hidden;">
-                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis voluptatibus dolor. Ratione vitae, quod dolore dolorem molestiae eaque minima corporis quo voluptatibus adipisci alias ea assumenda, animi ipsum fuga.</span>
-                        </div>
-                        
-                    </td>
-                    <td>400</td>
-                    <td>
-                        <div class="row">
-                            <div class="col-3">
-                                <a class="btn btn-warning">Edit</a>
-                            </div>
-                            <div class="col-3">
-                                <a class="btn btn-danger">Delete</a>
+                                <a class="btn btn-danger" (click)="deleteFacility(item.id)">Delete</a>
                             </div>
                             
                         </div>
@@ -69,7 +43,6 @@
                     
                   </tr>
                  
-                  
                 </tbody>
               </table>
         </div>

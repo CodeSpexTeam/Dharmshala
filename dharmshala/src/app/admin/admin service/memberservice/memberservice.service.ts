@@ -17,13 +17,21 @@ export class MemberserviceService {
   }
 
   public saveMember(data:Members){
-    debugger
     return this.http.post(`${this.baseUrl}/Members`, data);
   }
 
 
   public removeMemberFromList(id:number){
     return this.http.delete(`${this.baseUrl}/Members/${id}`);
+  }
+
+  public getMemberDetail(id:number){
+      return this.http.get(`${this.baseUrl}/Members/${id}`);;
+  }
+
+  public editMemberDetail(data:Members){
+    debugger
+    return this.http.put(`${this.baseUrl}/Members/${data.id}`, data);
   }
 
    

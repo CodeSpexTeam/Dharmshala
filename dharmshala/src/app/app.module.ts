@@ -18,6 +18,8 @@ import { MemberformComponent } from './admin/member form/memberform/memberform.c
 import { FacilityformComponent } from './admin/facility form/facilityform/facilityform.component';
 import { UploadimageComponent } from './admin/uploadimage/uploadimage.component';
 import { AddprojectsComponent } from './admin/addprojects/addprojects.component';
+import { MembereditformComponent } from './admin/member form/membereditform/membereditform.component';
+import { SocialmediaformComponent } from './admin/social media/socialmediaform/socialmediaform.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +36,16 @@ import { AddprojectsComponent } from './admin/addprojects/addprojects.component'
     MemberformComponent,
     FacilityformComponent,
     UploadimageComponent,
-    AddprojectsComponent
+    AddprojectsComponent,
+    MembereditformComponent,
+    SocialmediaformComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

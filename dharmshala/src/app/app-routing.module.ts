@@ -12,19 +12,23 @@ import { MemberformComponent } from './admin/member form/memberform/memberform.c
 import { FacilityformComponent } from './admin/facility form/facilityform/facilityform.component';
 import { UploadimageComponent } from './admin/uploadimage/uploadimage.component';
 import { AddprojectsComponent } from './admin/addprojects/addprojects.component';
+import { MembereditformComponent } from './admin/member form/membereditform/membereditform.component';
+import { SocialmediaformComponent } from './admin/social media/socialmediaform/socialmediaform.component';
 
 const routes: Routes = [
-  { path: '', component: SigninComponent },
+  { path: 'admin', component: SigninComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'about', component: AboutComponent },
   { path: 'member', component: MemberComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'member-form', component: MemberformComponent},
+  { path: 'member-edit', component: MembereditformComponent},
   { path: 'facility-form', component: FacilityformComponent},
   { path: 'upload-image', component: UploadimageComponent},
   { path: 'add-projects', component: AddprojectsComponent},
   { path: 'social-media', component: SocialmediaComponent },
+  { path: 'social-media-form', component: SocialmediaformComponent},
   { path: 'facility', component: FacilityComponent },
   { path: '**', component: SigninComponent },  // Wildcard route for a 404 page
 ];

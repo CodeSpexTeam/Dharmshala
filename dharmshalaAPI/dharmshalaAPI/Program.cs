@@ -1,6 +1,7 @@
 using dharmshalaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
+using dharmshalaAPI.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -2,26 +2,21 @@
     <div class="row d-flex justify-content-center">
         <div class="col-6">
             <h3>Add Projects</h3>
-            <form>
+            <form #addProject="ngForm" (ngSubmit)="OnSubmitProjects(addProject.value)" >
                 <div class="mb-3">
-                    <label for="projects" class="form-label">Projects</label>
-                    <select name="projects"  class="form-control">
-                        <option value="">Projects-1</option>
-                        <option value="">Projects-2</option>
-                        <option value="">Projects-3</option>
-                        <option value="">Other</option>
-                    </select>
+                    <label for="title" class="form-label">Projects</label>
+                    <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp" ngModel>
                    
                 </div>
 
                 <div class="mb-3">
                   <label for="image" class="form-label">Image</label>
-                  <input type="file" class="form-control" id="image" aria-describedby="emailHelp">
+                  <input type="file" class="form-control" name="image" id="image" aria-describedby="emailHelp" ngModel>
                 </div>
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
+                    <textarea name="description" name="description" id="description" cols="30" rows="5" class="form-control" ngModel></textarea>
                     
                 </div>
                 

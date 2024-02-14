@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using dharmshalaAPI.Data;
 using dharmshalaAPI.Model;
+using NuGet.Protocol;
 
 namespace dharmshalaAPI.Controllers
 {
@@ -59,6 +60,7 @@ namespace dharmshalaAPI.Controllers
             {
                 return BadRequest();
             }
+            
 
             _context.Entry(members).State = EntityState.Modified;
 

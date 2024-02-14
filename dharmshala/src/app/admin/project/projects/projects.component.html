@@ -15,15 +15,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Hospital</td>
+                  <tr *ngFor="let item of ProjectsList; let indexOfelement=index;">
+                    <th scope="row">{{indexOfelement+1}}</th>
+                    <td>{{item.title}}</td>
                     <td>
-                        <img src="" alt="Service-Image">
+                        <img src={{item.imgae}} alt="Service-Image">
                     </td>
                     <td>
-                        <div style="width: 200px; height: 100px; overflow: hidden;">
-                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis voluptatibus dolor. Ratione vitae, quod dolore dolorem molestiae eaque minima corporis quo voluptatibus adipisci alias ea assumenda, animi ipsum fuga.</span>
+                        <div style="width: 200px; max-height: 100px; overflow: hidden;">
+                            <span>{{item.description}}</span>
                         </div>
                         
                     </td>
@@ -33,38 +33,13 @@
                                 <a class="btn btn-warning">Edit</a>
                             </div>
                             <div class="col-3">
-                                <a class="btn btn-danger">Delete</a>
+                                <a class="btn btn-danger" (click)="removeProjectFromList(item.id)">Delete</a>
                             </div>
-                            
                         </div>
                     </td>
                     
                   </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Dharmshala</td>
-                    <td>
-                        <img src="" alt="Service-Image">
-                    </td>
-                    <td>
-                        <div style="width: 200px; height: 100px; overflow: hidden;">
-                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit officiis voluptatibus dolor. Ratione vitae, quod dolore dolorem molestiae eaque minima corporis quo voluptatibus adipisci alias ea assumenda, animi ipsum fuga.</span>
-                        </div>
-                        
-                    </td>
-                    <td>
-                        <div class="row">
-                            <div class="col-3">
-                                <a class="btn btn-warning">Edit</a>
-                            </div>
-                            <div class="col-3">
-                                <a class="btn btn-danger">Delete</a>
-                            </div>
-                            
-                        </div>
-                    </td>
-                    
-                  </tr>
+                 
                  
                   
                 </tbody>

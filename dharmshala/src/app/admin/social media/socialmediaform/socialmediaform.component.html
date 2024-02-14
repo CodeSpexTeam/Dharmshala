@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <h3>Add Social Media</h3>
+            <form #facilityForm="ngForm" (ngSubmit)="onSubmitSocialMedia(facilityForm.value)">
+                <div class="mb-3">
+                    <label for="mediaName" class="form-label">Media Name</label>
+                    <input type="text" name="mediaName" class="form-control" id="mediaName" aria-describedby="emailHelp" ngModel>
+                </div>
+
+                <div class="mb-3">
+                    <label for="link" class="form-label">Link</label>
+                    <input type="text" name="link" class="form-control" id="link" aria-describedby="emailHelp" ngModel>
+                </div>
+                <button type="submit" class="btn submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

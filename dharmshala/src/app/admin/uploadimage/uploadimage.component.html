@@ -2,15 +2,15 @@
     <div class="row d-flex justify-content-center">
         <div class="col-6">
             <h3>Add Image</h3>
-            <form>
+            <form #addedImage="ngForm" (ngSubmit)="onSubmitImage(addedImage.value)">
                
                 <div class="mb-3">
                     <label for="fees" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="fees" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp" ngModel>
                 </div>
                 <div class="mb-3">
                   <label for="image" class="form-label">Image</label>
-                  <input type="file" class="form-control" id="image" aria-describedby="emailHelp">
+                  <input type="file" class="form-control" name="image" id="image" aria-describedby="emailHelp" ngModel>
                 </div>
                 <button type="submit" class="btn submit-btn">Submit</button>
             </form>
