@@ -78,7 +78,7 @@ namespace dharmshalaAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(new {Message = "Record has been updated!"});
         }
 
         // POST: api/Gallery
@@ -116,6 +116,29 @@ namespace dharmshalaAPI.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+
+        // DELETE: api/Gallery/image/6
+        [HttpPost("{id}")]
+        public async Task<IActionResult> DeleteGalleryImage(int id)
+        {
+            if (_context.Gallery == null)
+            {
+                return BadRequest(new {Message="Not Found!"});
+            }
+            var gallery = await _context.Gallery.FindAsync(id);
+            if (gallery == null)
+            {
+                return BadRequest(new { Message = "Not Found!" }); ;
+            }
+
+            gallery.Image = "";
+            gallery.UpdatedDate = DateTime.Now;
+            _context.Gallery.Update(gallery);
+            await _context.SaveChangesAsync();
+
+            return Ok(gallery);
         }
 
         private bool GalleryExists(int id)

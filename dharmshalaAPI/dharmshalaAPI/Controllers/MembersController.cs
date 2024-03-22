@@ -58,10 +58,9 @@ namespace dharmshalaAPI.Controllers
         {
             if (id != members.Id)
             {
-                return BadRequest();
+                return BadRequest(new { Message = "Not Found Data!" });
             }
             
-
             _context.Entry(members).State = EntityState.Modified;
 
             try
@@ -72,7 +71,7 @@ namespace dharmshalaAPI.Controllers
             {
                 if (!MembersExists(id))
                 {
-                    return NotFound();
+                    return BadRequest(new {Message="Not Found Data!"});
                 }
                 else
                 {
@@ -80,7 +79,7 @@ namespace dharmshalaAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(new {Message="Data has been updated!"});
         }
 
         // POST: api/Members
@@ -95,7 +94,7 @@ namespace dharmshalaAPI.Controllers
 
           if (_context.Members.Any(e => e.Email == members.Email)== true)
             {
-                return BadRequest(new {Massage = "Email is Already Exit!"});
+                return BadRequest(new {Message = "Email is Already Exit!"});
             }
 
             members.Created = DateTime.Now;
@@ -112,18 +111,18 @@ namespace dharmshalaAPI.Controllers
         {
             if (_context.Members == null)
             {
-                return NotFound();
+                return BadRequest(new {Message="No Record Found!"});
             }
             var members = await _context.Members.FindAsync(id);
             if (members == null)
             {
-                return NotFound();
+                return BadRequest(new { Message = "No Record Found!" });
             }
 
             _context.Members.Remove(members);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new { Message = "Record Deleted Successfuly!" });
         }
 
         private bool MembersExists(int id)

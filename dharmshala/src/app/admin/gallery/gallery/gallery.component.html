@@ -17,7 +17,7 @@
                   <tr *ngFor="let item of galleryList; let indexOfelement=index;" >
                     <th scope="row">{{indexOfelement+1}}</th>
                     <td>
-                        <img src={{item.image}} alt="Service-Image">
+                        <img src={{item.image}} alt="Image">
                     </td>
                     <td>
                         <div style="width: 200px; max-height: 50px; overflow: hidden;">
@@ -27,9 +27,9 @@
                     </td>
                    <td>
                         <div class="row">
-                            <div class="col-3">
-                                <a class="btn btn-warning">Edit</a>
-                            </div>
+                            <!-- <div class="col-3">
+                                <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getGalleryRecord(item.id)">Edit</a>
+                            </div> -->
                             <div class="col-3">
                                 <a class="btn btn-danger" (click)="removeImageFromList(item.id)">Delete</a>
                             </div>
@@ -39,10 +39,67 @@
                     
                   </tr>
                  
-                 
-                  
                 </tbody>
-              </table>
+            </table>
+            <div class="col-12 text-center" *ngIf="galleryList.length==0"> 
+                <h3>No Data !</h3>
+            </div>
         </div>
     </div>
+
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Gallery Detail</h1>
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12">
+                        <form #galleryform="ngForm" (ngSubmit)="editGalleryDetails(galleryDetails.id,galleryform.value)">
+                            <div class="mb-3">
+                                <label for="facility" class="form-label">Title</label>
+                                <input type="text" name="title"  class="form-control" id="facility" value="{{galleryDetails.title}}" ngModel >
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <img src="{{galleryDetails.image}}" alt="image">
+                                <!-- <div *ngIf="galleryDetails.image!='' ">
+                                    <img src="{{galleryDetails.image}}" alt="image">
+                                    <i type="btn" (click)="removeImage(galleryDetails.id)">Remove </i>
+                                </div>
+                                <div *ngIf="galleryDetails.image=='' ">
+                                    <input type="file" class="form-control" id="image" name="image" value="" ngModel>
+                                </div> -->
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <button type="submit" class="btn submit-btn  btn-dark">Submit</button> 
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" id="closeModal" class="btn btn-danger ml-5" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                            
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+       </div>
+    </div>
+  </div>
+
+
 </div>

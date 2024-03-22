@@ -22,11 +22,16 @@ export class FacilityserviceService {
     return this.http.delete(`${this.baseUrl}/Facilities/${id}`);
   }
 
+  public deleteFacilityImages(id:number){
+    return this.http.post(`${this.baseUrl}/Facilities/${id}`,id);
+  }
+
   public addFacility(data:any){
     return this.http.post(`${this.baseUrl}/Facilities`, data);
   }
 
   public updatedFacility(data:any){
-    return this.http.post(`${this.baseUrl}/Facilities/${data.id}`, data);
+    debugger
+    return this.http.put(`${this.baseUrl}/Facilities/${data.id}`, data);
   }
 }

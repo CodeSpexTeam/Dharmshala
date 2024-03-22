@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { GalleryserviceService } from '../admin service/galleryservice/galleryservice.service';
+import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-uploadimage',
@@ -8,7 +10,7 @@ import { GalleryserviceService } from '../admin service/galleryservice/galleryse
 })
 export class UploadimageComponent {
 
-  constructor(private galleryService:GalleryserviceService){}
+  constructor(private galleryService:GalleryserviceService, private toast:NgToastService, private router:Router){}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -18,7 +20,12 @@ export class UploadimageComponent {
 
   onSubmitImage(data:any){
     this.galleryService.addGallery(data).subscribe((res:any)=>{
-        console.log(res);
+      this.router.navigate(['/gallery']);
+      this.toast.success({detail:'Success Message', summary:'New Record has been Addded!', duration:5000});
+    },
+    (error)=>{
+      this.router.navigate(['/gallery']);
+      this.toast.success({detail:'Success Message', summary:error.message, duration:5000});
     });
   }
 

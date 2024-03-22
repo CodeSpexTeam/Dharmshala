@@ -20,7 +20,7 @@
                     <th scope="row">{{indexOfelement+1}}</th>
                     <td>{{item.facilityName}}</td>
                     <td>
-                        <img src={{item.image}} alt="Service-Image">
+                        <img src={{item.image}} alt="Image">
                     </td>
                     <td>
                         <div style="width: 200px; max-height: 100px; overflow: hidden;">
@@ -32,7 +32,7 @@
                     <td>
                         <div class="row">
                             <div class="col-3">
-                                <a class="btn btn-warning">Edit</a>
+                                <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getFacilityRecord(item.id)">Edit</a>
                             </div>
                             <div class="col-3">
                                 <a class="btn btn-danger" (click)="deleteFacility(item.id)">Delete</a>
@@ -42,9 +42,79 @@
                     </td>
                     
                   </tr>
-                 
                 </tbody>
               </table>
+              <div class="col-12 text-center" *ngIf="facilityDetail.length==0"> 
+                <h3>No Data !</h3>
+            </div>
         </div>
     </div>
+
+
+
+    
+     <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Facility Detail</h1>
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12">
+                        <form #facilityform="ngForm" (ngSubmit)="editFacilityDetails(facilityDetails.id,facilityform.value)">
+                            <div class="mb-3">
+                                <label for="facility" class="form-label">Facility</label>
+                                <input type="text" name="facilityName"  class="form-control" id="facility" value="{{facilityDetails.facilityName}}" ngModel >
+                            </div>
+                            <div class="mb-3">
+                                <label for="fees" class="form-label">Fees</label>
+                                <input type="text" class="form-control" id="fees" name="fees" value="{{facilityDetails.fees}}" ngModel>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <div *ngIf="facilityDetails.image!=null">
+                                    <img src="{{facilityDetails.image}}" alt="image">
+                                    <i type="btn" (click)="removeImage(facilityDetails.id)">Remove </i>
+                                </div>
+                                <div *ngIf="facilityDetails.image==null">
+                                    <input type="file" class="form-control" id="image" name="image" value="" ngModel>
+                                </div>
+                                
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea name="description" id="description" cols="30" rows="5" class="form-control"  value="{{facilityDetails.description}}" ngModel></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <button type="submit" class="btn submit-btn  btn-dark">Submit</button> 
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" id="closeModal" class="btn btn-danger ml-5" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                            
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+       </div>
+    </div>
+  </div>
+
+
+
+
 </div>

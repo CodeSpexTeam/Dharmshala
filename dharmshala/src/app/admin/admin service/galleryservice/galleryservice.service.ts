@@ -31,4 +31,8 @@ export class GalleryserviceService {
     return this.http.post(`${this.baseUrl}/Gallery`, data);
   }
 
+  public removeGalleryImage(id:number){
+    return this.http.post(`${this.baseUrl}/Gallery/${id}`, id);
+  }
+
 }

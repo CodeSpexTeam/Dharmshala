@@ -35,9 +35,11 @@
                             </div>
                         </td>
                     </tr>
-                  
                 </tbody>
             </table>
+            <div class="col-12 text-center" *ngIf="data.length==0"> 
+                <h3>No Data !</h3>
+            </div>
         </div>
     </div>
    
@@ -102,12 +104,10 @@
                                     <button type="submit" class="btn submit-btn">Submit</button> 
                                 </div>
                                 <div class="col-3">
-                                    <button type="button" class="btn btn-danger ml-5" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" id="closeModal" class="btn btn-danger ml-5" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
 
-                            
-                            
                         </form>
                         
                     </div>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MemberserviceService } from '../../admin service/memberservice/memberservice.service';
 import { Members } from '../../iterface/_memberInterface';
+import { Router } from '@angular/router';
+import { NgToastModule, NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-memberform',
@@ -9,7 +11,7 @@ import { Members } from '../../iterface/_memberInterface';
 })
 export class MemberformComponent {
 
-  constructor(private memberserive:MemberserviceService){}
+  constructor(private memberserive:MemberserviceService,private router: Router, private toast:NgToastService){}
 
   
   memberType:string[]=['Member1','Member2','Member3','Member4','Other']
@@ -26,7 +28,17 @@ export class MemberformComponent {
 
   getMemberFormData(data:Members){
     // console.log(data)
-    this.memberserive.saveMember(data).subscribe();
+    this.memberserive.saveMember(data).subscribe(
+      (res) =>{
+        console.log(res);
+        this.router.navigate(['/member']);
+        this.toast.success({detail:'Success Message', summary:'Member has been added successfuly!', duration:5000});
+      },
+      (error) => {  
+        this.toast.error({detail:'Error Message', summary:error.error.message, duration:5000});
+      }
+      
+    )
     
   }
 

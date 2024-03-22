@@ -57,7 +57,7 @@ namespace dharmshalaAPI.Controllers
         {
             if (id != facility.Id)
             {
-                return BadRequest();
+                return BadRequest(new {Message="Not Found!"});
             }
 
             _context.Entry(facility).State = EntityState.Modified;
@@ -70,7 +70,7 @@ namespace dharmshalaAPI.Controllers
             {
                 if (!FacilityExists(id))
                 {
-                    return NotFound();
+                    return BadRequest(new { Message = "Not Found!" });
                 }
                 else
                 {
@@ -78,7 +78,7 @@ namespace dharmshalaAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(new { Message = "Data has been updated!" }); 
         }
 
         // POST: api/Facilities
@@ -95,7 +95,7 @@ namespace dharmshalaAPI.Controllers
             _context.Facilities.Add(facility);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFacility", new { id = facility.Id }, facility);
+            return CreatedAtAction("GetFacility", new { id = facility.Id}, facility);
         }
 
         // DELETE: api/Facilities/5
@@ -116,6 +116,29 @@ namespace dharmshalaAPI.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        // DELETE: api/Facilities/Image/6
+        [HttpPost("{id}")]
+        public async Task<IActionResult> DeleteFacilityImage(int id)
+        {
+            if (_context.Facilities == null)
+            {
+                return BadRequest(new { Message = "Not Found Data" });
+            }
+            var facility = await _context.Facilities.FindAsync(id);
+            if (facility == null)
+            {
+                return BadRequest(new {Message="Not Found Data"});
+            }
+
+            facility.Image = null;
+            facility.UpdatedDate=DateTime.Now;
+
+            _context.Facilities.Update(facility);
+            await _context.SaveChangesAsync();
+
+            return Ok(facility);
         }
 
         private bool FacilityExists(int id)
