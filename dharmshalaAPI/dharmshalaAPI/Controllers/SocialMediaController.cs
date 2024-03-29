@@ -38,13 +38,13 @@ namespace dharmshalaAPI.Controllers
         {
           if (_context.SocialMedia == null)
           {
-              return NotFound();
-          }
+              return BadRequest(new { Message = "Not Found!" });
+            }
             var socialMedia = await _context.SocialMedia.FindAsync(id);
 
             if (socialMedia == null)
             {
-                return NotFound();
+                return BadRequest(new { Message = "Not Found!" });
             }
 
             return socialMedia;
@@ -57,7 +57,7 @@ namespace dharmshalaAPI.Controllers
         {
             if (id != socialMedia.Id)
             {
-                return BadRequest();
+                return BadRequest(new { Message = "Not Found!" });
             }
 
             _context.Entry(socialMedia).State = EntityState.Modified;
@@ -70,7 +70,7 @@ namespace dharmshalaAPI.Controllers
             {
                 if (!SocialMediaExists(id))
                 {
-                    return NotFound();
+                    return BadRequest(new { Message = "Not Found!" });
                 }
                 else
                 {
@@ -78,7 +78,7 @@ namespace dharmshalaAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(new { Message = "Data has been updated!" });
         }
 
         // POST: api/SocialMedia
@@ -104,12 +104,12 @@ namespace dharmshalaAPI.Controllers
         {
             if (_context.SocialMedia == null)
             {
-                return NotFound();
+                return BadRequest(new { Message = "Not Found!" });
             }
             var socialMedia = await _context.SocialMedia.FindAsync(id);
             if (socialMedia == null)
             {
-                return NotFound();
+                return BadRequest(new { Message = "Not Found!" });
             }
 
             _context.SocialMedia.Remove(socialMedia);

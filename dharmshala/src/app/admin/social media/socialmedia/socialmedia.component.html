@@ -23,7 +23,7 @@
                     <td>
                         <div class="row">
                             <div class="col-3">
-                                <a class="btn btn-warning">Edit</a>
+                                <a class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getProjectRecord(item.id)">Edit</a>
                             </div>
                             <div class="col-3">
                                 <a class="btn btn-danger" (click)="removeSocialMedia(item.id)">Delete</a>
@@ -41,4 +41,51 @@
             </div>
         </div>
     </div>
+
+
+     <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Social Media Detail</h1>
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12">
+                        <form #mediaform="ngForm" (ngSubmit)="editSocialMediaDetails(sociaoMediaDetails.id, mediaform.value)">
+                            <div class="mb-3">
+                                <label for="mediaName" class="form-label">Social Media</label>
+                                <input type="text" name="mediaName"  class="form-control" id="mediaName" value="{{sociaoMediaDetails.mediaName}}" ngModel>
+                            </div>
+                            <div class="mb-3">
+                              <label for="link" class="form-label">Social Media Link</label>
+                              <input type="text" name="link"  class="form-control" id="link" value="{{sociaoMediaDetails.link}}" ngModel>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-3">
+                                    <button type="submit" class="btn submit-btn  btn-dark">Submit</button> 
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" id="closeModal" class="btn btn-danger ml-5" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                            
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+       </div>
+    </div>
+  </div>
 </div>

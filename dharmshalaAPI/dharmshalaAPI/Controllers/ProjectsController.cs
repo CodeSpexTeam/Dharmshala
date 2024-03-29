@@ -57,7 +57,7 @@ namespace dharmshalaAPI.Controllers
         {
             if (id != project.Id)
             {
-                return BadRequest();
+                return BadRequest(new { Message = "Not Found!" });
             }
 
             _context.Entry(project).State = EntityState.Modified;
@@ -70,7 +70,7 @@ namespace dharmshalaAPI.Controllers
             {
                 if (!ProjectExists(id))
                 {
-                    return NotFound();
+                    return BadRequest(new { Message = "Not Found!" });
                 }
                 else
                 {
@@ -78,7 +78,7 @@ namespace dharmshalaAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(new { Message = "Data has been updated!" });
         }
 
         // POST: api/Projects
@@ -105,12 +105,12 @@ namespace dharmshalaAPI.Controllers
         {
             if (_context.Projects == null)
             {
-                return NotFound();
+                return BadRequest(new { Message = "Not Found!" });
             }
             var project = await _context.Projects.FindAsync(id);
             if (project == null)
             {
-                return NotFound();
+                return BadRequest(new { Message = "Not Found!" });
             }
 
             _context.Projects.Remove(project);
@@ -118,6 +118,31 @@ namespace dharmshalaAPI.Controllers
 
             return NoContent();
         }
+
+
+        // DELETE: api/Projects/Image/6
+        [HttpPost("{id}")]
+        public async Task<IActionResult> DeleteProjectImage(int id)
+        {
+            if (_context.Projects == null)
+            {
+                return BadRequest(new { Message = "Not Found Data" });
+            }
+            var project = await _context.Projects.FindAsync(id);
+            if (project == null)
+            {
+                return BadRequest(new { Message = "Not Found Data" });
+            }
+
+            project.Image = null;
+            project.UpdatedDate = DateTime.Now;
+
+            _context.Projects.Update(project);
+            await _context.SaveChangesAsync();
+
+            return Ok(project);
+        }
+
 
         private bool ProjectExists(int id)
         {

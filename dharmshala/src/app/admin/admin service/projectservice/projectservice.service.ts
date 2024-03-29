@@ -30,4 +30,8 @@ export class ProjectserviceService {
     return this.http.delete(`${this.baseUrl}/Projects/${id}`);
   }
 
+  public deleteFacilityImages(id:number){
+    return this.http.post(`${this.baseUrl}/Projects/${id}`,id);
+  }
+
 }
