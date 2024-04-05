@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthserviceService } from './admin/admin service/authservice/authservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dharmshala';
+  islogin:boolean = false;
+  constructor(private authService:AuthserviceService){}
+
+  ngOnInit(): void {
+    this.islogin  = this.authService.isLoggedIn();
+  }
+  
+
 }

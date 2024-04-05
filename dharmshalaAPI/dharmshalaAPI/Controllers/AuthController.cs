@@ -14,6 +14,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using NuGet.Packaging.Signing;
 using Microsoft.IdentityModel.Tokens;
+using dharmshalaAPI.HelperModal;
 
 namespace dharmshalaAPI.Controllers
 {
@@ -117,7 +118,6 @@ namespace dharmshalaAPI.Controllers
             auth.Members.Created =  DateTime.Now;
             auth.Members.Updated = DateTime.Now;
 
-            
             _context.Auth.Add(auth);
             await _context.SaveChangesAsync();
 
@@ -131,8 +131,54 @@ namespace dharmshalaAPI.Controllers
         // POST: api/Auth
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody]LoginModel user)
+        {
+
+            if (user.Email == null || user.Email == "" || user.Password == null || user.Password == "")
+            {
+                return BadRequest(new
+                {
+                    Message = "Input Data is Invalid!",
+                });
+            }
+
+            var Userdata = await _context.Auth.FirstOrDefaultAsync(m => m.Members.Email == user.Email);
+            if (Userdata != null)
+            {
+               var MemberDetail = await _context.Members.FirstOrDefaultAsync(m => m.Id == Userdata.MembersId);
+
+                if (MemberDetail != null)
+                {
+                    Userdata.Members = MemberDetail;
+                }
+                
+            }
+            
+
+            if (Userdata == null)
+            {
+                return BadRequest(new { Message = "Username Or Password is Wrong!" });
+            }
+
+            if (!PasswordHasher.VerifyPassword(user.Password, Userdata.Password))
+            {
+                return BadRequest(new { Message = "password is incorrect!" });
+            }
+
+            var token = CreateJwtToken(Userdata.Members.Email, Userdata.Members.Role);
+
+            return Ok(new
+            {
+                Token = token,
+                Message = "Login Success",
+                UserInformation = Userdata,
+                StatusCode = StatusCodes.Status200OK
+            });
+        }
+        /*[HttpPost("Login")]
         public async Task<ActionResult> Login(string email, string password)
         {
+
           var adminDetail =  await _context.Auth.FirstOrDefaultAsync(m => m.Members.Email == email);
 
             if (adminDetail== null)
@@ -154,7 +200,7 @@ namespace dharmshalaAPI.Controllers
             return Ok( new { Token = "",
                 Message = "Login Success"
             });
-        }
+        }*/
 
 
 
@@ -216,15 +262,15 @@ namespace dharmshalaAPI.Controllers
         }
 
 
-        private string CreateJwt(Auth auth)
+        private string CreateJwtToken(string email, string role)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes("veryveryscecret.....");
 
             var identity = new ClaimsIdentity(new Claim[]
             {
-                new Claim(ClaimTypes.Role, auth.Members.Role),
-                new Claim(ClaimTypes.Email, auth.Members.Email)
+                new Claim(ClaimTypes.Role, role),
+                new Claim(ClaimTypes.Email, email)
             });
 
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key),SecurityAlgorithms.HmacSha256);

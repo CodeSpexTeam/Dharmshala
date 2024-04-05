@@ -24,7 +24,7 @@ export class SocialmediaformComponent {
       this.toast.success({detail:'Success Message', summary:'New Media has been added Successfuly!'});
     },
     (error)=>{
-      this.toast.success({detail:'Error Message', summary:error.message,duration:5000});
+      this.toast.error({detail:'Error Message', summary:error.message,duration:5000});
     }
     )
   }
