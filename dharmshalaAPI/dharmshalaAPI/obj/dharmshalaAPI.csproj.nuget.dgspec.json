@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Reepu\\agrawaldhramshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj": {}
+    "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj": {}
   },
   "projects": {
-    "D:\\Reepu\\agrawaldhramshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj": {
+    "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Reepu\\agrawaldhramshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj",
+        "projectUniqueName": "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj",
         "projectName": "dharmshalaAPI",
-        "projectPath": "D:\\Reepu\\agrawaldhramshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj",
+        "projectPath": "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj",
         "packagesPath": "C:\\Users\\nitro\\.nuget\\packages\\",
-        "outputPath": "D:\\Reepu\\agrawaldhramshala\\dharmshalaAPI\\dharmshalaAPI\\obj\\",
+        "outputPath": "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nitro\\AppData\\Roaming\\NuGet\\NuGet.Config",
