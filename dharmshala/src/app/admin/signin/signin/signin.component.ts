@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthserviceService } from '../../admin service/authservice/authservice.service';
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
+import { UserStoreService } from '../../admin service/userservice/user-store.service';
 
 
 @Component({
@@ -10,18 +11,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  constructor(private authService:AuthserviceService, private toast:NgToastService, private router:Router){}
+  constructor(private authService:AuthserviceService, private toast:NgToastService, private router:Router,
+    private userStore:UserStoreService
+  ){}
  ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-
+  if(this.authService.isLoggedIn()){
+    this.router.navigate(['/dashboard']);
+  }
  }
   
   onSignin(data:any){
     this.authService.onSubmitLoginForm(data).subscribe((res:any)=>{
       this.authService.setToken(res.token);
+      const tokenPayload = this.authService.decodeToken();
+      this.userStore.setFullNameFromStore(tokenPayload.unique_name);
+      this.userStore.setRoleFromStore(tokenPayload.role);
       window.location.reload();
-      this.router.navigate(['/dashboard']);
+      
       this.toast.success({detail:'success Message', summary:"Login Success!",duration:5000});
     }
     ,

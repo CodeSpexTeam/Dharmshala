@@ -15,8 +15,10 @@ import { AddprojectsComponent } from './admin/addprojects/addprojects.component'
 import { MembereditformComponent } from './admin/member form/membereditform/membereditform.component';
 import { SocialmediaformComponent } from './admin/social media/socialmediaform/socialmediaform.component';
 import { AuthGuard } from './guard/auth.guard';
+import { SignupComponent } from './admin/signup/signup/signup.component';
 
 const routes: Routes = [
+  { path: 'admin', component: SigninComponent },
   { path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard] },
   { path: 'about', component: AboutComponent,canActivate: [AuthGuard] },
   { path: 'member', component: MemberComponent,canActivate: [AuthGuard] },
@@ -30,6 +32,7 @@ const routes: Routes = [
   { path: 'social-media', component: SocialmediaComponent,canActivate: [AuthGuard] },
   { path: 'social-media-form', component: SocialmediaformComponent,canActivate: [AuthGuard]},
   { path: 'facility', component: FacilityComponent,canActivate: [AuthGuard] },
+  { path: 'sign-up', component: SignupComponent,canActivate: [AuthGuard] },
   { path: '', component: SigninComponent },  // Wildcard route for a 404 page
 ];
 

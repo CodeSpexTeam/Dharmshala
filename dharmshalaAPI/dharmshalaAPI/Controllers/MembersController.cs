@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using dharmshalaAPI.Data;
 using dharmshalaAPI.Model;
 using NuGet.Protocol;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dharmshalaAPI.Controllers
 {
@@ -23,6 +24,7 @@ namespace dharmshalaAPI.Controllers
         }
 
         // GET: api/Members
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Members>>> GetMembers()
         {
@@ -60,7 +62,7 @@ namespace dharmshalaAPI.Controllers
             {
                 return BadRequest(new { Message = "Not Found Data!" });
             }
-            
+
             _context.Entry(members).State = EntityState.Modified;
 
             try

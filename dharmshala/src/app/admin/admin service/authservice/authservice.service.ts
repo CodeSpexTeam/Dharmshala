@@ -10,7 +10,9 @@ import { environment } from 'src/environments/environment.development';
 export class AuthserviceService {
   
   userPayload:any;
-  constructor(private http: HttpClient, private router:Router) { }
+  constructor(private http: HttpClient, private router:Router) { 
+    this.userPayload = this.decodeToken();
+  }
   baseUrl = environment.apiUrl;
 
   onSubmitLoginForm(data:any){
@@ -42,14 +44,19 @@ export class AuthserviceService {
     return jwtHelper.decodeToken(token);
   }
   
-  getUsernameFromToken(){
+  getfullNameFromToken(){
     if(this.userPayload)
     return this.userPayload.unique_name;
   }
 
-  getUserIdFromToken(){
+  getRoledFromToken(){
     if(this.userPayload)
-    return this.userPayload.nameid;
+    return this.userPayload.role;
+  }
+
+  getAdminIdFromToken(){
+    if(this.userPayload)
+    return this.userPayload.id;
   }
 
 }

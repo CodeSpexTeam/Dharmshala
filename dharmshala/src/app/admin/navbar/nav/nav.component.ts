@@ -20,13 +20,11 @@ export class NavComponent {
   }
 
   onLogOut(){
-   let status = this.authService.isLogOut();
-
-   if(status==true){
-   this.router.navigate(['/']);
+  let status = this.authService.isLogOut();
+  if(status==true){
+   this.router.navigate(['/admin']);
    window.location.reload();
-    this.toast.success({detail:'Success Message',summary:'Logout Success!'});
-   }
+  }
     
   };
 

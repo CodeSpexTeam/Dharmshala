@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using dharmshalaAPI.Data;
 using dharmshalaAPI.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dharmshalaAPI.Controllers
 {
@@ -22,6 +23,7 @@ namespace dharmshalaAPI.Controllers
         }
 
         // GET: api/Facilities
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Facility>>> GetFacilities()
         {

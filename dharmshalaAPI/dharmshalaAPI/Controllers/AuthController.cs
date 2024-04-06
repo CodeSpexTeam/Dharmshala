@@ -165,7 +165,7 @@ namespace dharmshalaAPI.Controllers
                 return BadRequest(new { Message = "password is incorrect!" });
             }
 
-            var token = CreateJwtToken(Userdata.Members.Email, Userdata.Members.Role);
+            var token = CreateJwtToken(Userdata.Members.Email, Userdata.Members.Role, Userdata.Members.Name+Userdata.Members.LastName, Userdata.MembersId);
 
             return Ok(new
             {
@@ -262,7 +262,7 @@ namespace dharmshalaAPI.Controllers
         }
 
 
-        private string CreateJwtToken(string email, string role)
+        private string CreateJwtToken(string email, string role,string name, int memberid)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes("veryveryscecret.....");
@@ -270,7 +270,10 @@ namespace dharmshalaAPI.Controllers
             var identity = new ClaimsIdentity(new Claim[]
             {
                 new Claim(ClaimTypes.Role, role),
-                new Claim(ClaimTypes.Email, email)
+                new Claim(ClaimTypes.Email, email),
+                new Claim(ClaimTypes.Name, name),
+                new Claim("id" ,memberid.ToString())
+
             });
 
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key),SecurityAlgorithms.HmacSha256);

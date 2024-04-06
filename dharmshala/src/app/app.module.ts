@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 
@@ -21,6 +21,8 @@ import { UploadimageComponent } from './admin/uploadimage/uploadimage.component'
 import { AddprojectsComponent } from './admin/addprojects/addprojects.component';
 import { MembereditformComponent } from './admin/member form/membereditform/membereditform.component';
 import { SocialmediaformComponent } from './admin/social media/socialmediaform/socialmediaform.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { SignupComponent } from './admin/signup/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { SocialmediaformComponent } from './admin/social media/socialmediaform/s
     UploadimageComponent,
     AddprojectsComponent,
     MembereditformComponent,
-    SocialmediaformComponent
+    SocialmediaformComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,11 @@ import { SocialmediaformComponent } from './admin/social media/socialmediaform/s
     NgToastModule
     
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
