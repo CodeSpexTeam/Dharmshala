@@ -3,6 +3,7 @@ import { AuthserviceService } from '../../admin service/authservice/authservice.
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
 import { UserStoreService } from '../../admin service/userservice/user-store.service';
+import { MemberserviceService } from '../../admin service/memberservice/memberservice.service';
 
 
 @Component({
@@ -11,13 +12,21 @@ import { UserStoreService } from '../../admin service/userservice/user-store.ser
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  constructor(private authService:AuthserviceService, private toast:NgToastService, private router:Router,
+
+  isSuperAdmin :boolean = false;
+
+  constructor(private authService:AuthserviceService, private toast:NgToastService, private router:Router, private memberService:MemberserviceService,
     private userStore:UserStoreService
   ){}
+
+
+
  ngOnInit(): void {
   if(this.authService.isLoggedIn()){
     this.router.navigate(['/dashboard']);
   }
+
+  this.IsSuperAdminExists();
  }
   
   onSignin(data:any){
@@ -45,6 +54,21 @@ export class SigninComponent {
 
    
    
+  }
+
+
+
+  editMemberDetails(data:any){}
+
+  IsSuperAdminExists(){
+    this.memberService.IsSuperAdminExists().subscribe((res:any)=>{
+      this.isSuperAdmin = res;
+    },
+    (error)=>{
+      debugger
+      this.toast.error({detail:'Error Message', summary:error.member, duration:5000});
+    }
+  )
   }
 
 }

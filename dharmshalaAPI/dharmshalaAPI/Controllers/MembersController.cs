@@ -127,9 +127,41 @@ namespace dharmshalaAPI.Controllers
             return Ok(new { Message = "Record Deleted Successfuly!" });
         }
 
+
         private bool MembersExists(int id)
         {
             return (_context.Members?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+
+        [HttpGet("IsSuperAdminExists")]
+        public async Task<ActionResult<bool>> IsSuperAdminExists()
+        {
+            bool isexit = false;
+            if (_context.Members == null)
+            {
+                return isexit;
+            }
+
+            var adminList = await _context.Auth.ToListAsync();
+
+            foreach (Auth auth in adminList)
+            {
+                if (auth.MembersId != 0)
+                {
+                    var members = await _context.Members.FirstOrDefaultAsync(e => e.MemberType == "Super Admin");
+
+                    if (members != null)
+                    {
+                        isexit = true;
+                        break;
+                    }
+                }
+
+            }
+                    
+
+            return isexit;
         }
     }
 }

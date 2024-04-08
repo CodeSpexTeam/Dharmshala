@@ -19,6 +19,10 @@ export class AuthserviceService {
     return this.http.post(`${this.baseUrl}/Auth/Login`,data);
   }
 
+  onSubmitSignUpForm(data:any){
+    return this.http.post(`${this.baseUrl}/Auth/Login`,data);
+  }
+
   setToken(token:string){
     localStorage.setItem("access_token", token);
   }

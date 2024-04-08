@@ -31,6 +31,7 @@ export class MemberComponent {
   displayMemberList(){
     this.memberserive.getMemberList().subscribe((res:any)=>{
       this.data = res;
+      this.data= this.data.filter(m=>m.role != "Admin");
       console.log(this.data);
     }); 
   }
@@ -102,12 +103,5 @@ export class MemberComponent {
   }
 
 
-  
- 
-
-  
-
-
-  
 
 }

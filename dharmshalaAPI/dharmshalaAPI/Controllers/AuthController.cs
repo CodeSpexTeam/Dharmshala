@@ -37,7 +37,24 @@ namespace dharmshalaAPI.Controllers
           {
               return NotFound();
           }
-            return await _context.Auth.ToListAsync();
+
+           var adminList = await _context.Auth.ToListAsync();
+
+            foreach (Auth auth in adminList)
+            {
+                if (auth.MembersId != 0)
+                {
+                    var memberDetails =  await _context.Members.FindAsync(auth.MembersId);
+
+                    if (memberDetails != null)
+                    {
+                        auth.Members = memberDetails;
+                    }
+                }
+              
+            }
+
+            return adminList;
         }
 
         // GET: api/Auth/5
@@ -106,8 +123,14 @@ namespace dharmshalaAPI.Controllers
                 return BadRequest(new { Message = "Email Already Exist!" });
             }
 
+            //check Super Admin
+           /* if (await CheckSuperAdminExit())
+            {
+                return BadRequest(new { Message = "Super Admin Already Exist!" });
+            }*/
 
-           var pass =  CheckPasswordStrength(auth.Password);
+
+            var pass =  CheckPasswordStrength(auth.Password);
                 
             if(!string.IsNullOrEmpty(pass))
                 return BadRequest(new {Message = pass.ToString()});
@@ -203,28 +226,32 @@ namespace dharmshalaAPI.Controllers
         }*/
 
 
-
-
-
-
         // DELETE: api/Auth/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuth(int id)
         {
             if (_context.Auth == null)
             {
-                return NotFound();
+                return BadRequest(new { Message = "Not found!" });
             }
             var auth = await _context.Auth.FindAsync(id);
             if (auth == null)
             {
-                return NotFound();
+                return BadRequest(new { Message = "Not found!" });
             }
 
+            var memberRecords = await _context.Members.FindAsync(auth.MembersId);
+
             _context.Auth.Remove(auth);
+
+            if(memberRecords != null)
+            {
+                _context.Members.Remove(memberRecords);
+            }
+            
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new{ Message ="Admin has been deleted!", deleteDetail= auth });
         }
 
         private bool AuthExists(int id)
@@ -236,6 +263,11 @@ namespace dharmshalaAPI.Controllers
         private async Task<bool> CheckEmailExit(string email)
         {
             return await _context.Auth.AnyAsync(e => e.Members.Email == email);
+        }
+
+        private async Task<bool> CheckSuperAdminExit()
+        {
+            return await _context.Auth.AnyAsync(e => e.Members.MemberType == "Super Admin");
         }
 
         private string CheckPasswordStrength(string password)

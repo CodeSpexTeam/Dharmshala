@@ -21,7 +21,7 @@ export class AboutComponent {
       const fullBNameFromToken = this.authService.getfullNameFromToken();
       this.fullName = res || fullBNameFromToken
       let adminId = this.authService.getAdminIdFromToken();
-      
+      debugger
       this.getUser(adminId);
     });
    
