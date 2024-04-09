@@ -16,6 +16,12 @@ import { MembereditformComponent } from './admin/member form/membereditform/memb
 import { SocialmediaformComponent } from './admin/social media/socialmediaform/socialmediaform.component';
 import { AuthGuard } from './guard/auth.guard';
 import { SignupComponent } from './admin/signup/signup/signup.component';
+import { HomeComponent } from './User/home/home.component';
+import { TrustComponent } from './User/trust/trust.component';
+import { FacilitiesComponent } from './User/facilities/facilities.component';
+import { OtherProjectsComponent } from './User/other-projects/other-projects.component';
+import { PhotoGalleryComponent } from './User/photo-gallery/photo-gallery.component';
+import { ContactUsComponent } from './User/contact-us/contact-us.component';
 
 const routes: Routes = [
   { path: 'admin', component: SigninComponent },
@@ -33,8 +39,15 @@ const routes: Routes = [
   { path: 'social-media-form', component: SocialmediaformComponent,canActivate: [AuthGuard]},
   { path: 'facility', component: FacilityComponent,canActivate: [AuthGuard] },
   { path: 'sign-up', component: SignupComponent,canActivate: [AuthGuard] },
-  { path: '', component: SigninComponent },  // Wildcard route for a 404 page
+  { path: '', component: HomeComponent },  // Wildcard route for a 404 page
+
+  { path: 'trust', component: TrustComponent },
+  { path: 'facilities', component: FacilitiesComponent },
+  { path: 'other-projects', component: OtherProjectsComponent },
+  { path: 'photo-gallery', component: PhotoGalleryComponent },
+  { path: 'contact-us', component: ContactUsComponent },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

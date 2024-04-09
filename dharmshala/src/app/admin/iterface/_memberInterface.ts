@@ -12,17 +12,17 @@ export interface Members{
 
 export interface adminCreateAccount{
 
-    password:string;
-    token:string;
+    password:string|null| undefined;
+    token:string|null| undefined;
     members:{
-            role: string
-            name:string;
-            lastName:string;
-            email:string;
-            phone:string;
-            memberType:string;
-            address:string;
-            description:string
+            role: string|null| undefined
+            name:string|null| undefined;
+            lastName:string|null| undefined;
+            email:string|null| undefined;
+            phone:string|null| undefined;
+            memberType:string|null| undefined;
+            address:string|null| undefined;
+            description:string|null| undefined
     }
 }
 

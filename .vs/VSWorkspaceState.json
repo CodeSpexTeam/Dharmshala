@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\dharmshalaAPI",
-    "\\dharmshalaAPI\\dharmshalaAPI"
+    "\\dharmshalaAPI\\dharmshalaAPI",
+    "\\dharmshalaAPI\\dharmshalaAPI\\Controllers"
   ],
-  "SelectedNode": "\\dharmshalaAPI\\dharmshalaAPI\\Program.cs",
+  "SelectedNode": "\\dharmshalaAPI\\dharmshalaAPI\\Controllers\\AuthController.cs",
   "PreviewInSolutionExplorer": false
 }

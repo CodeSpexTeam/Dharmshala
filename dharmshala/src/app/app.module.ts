@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,14 @@ import { MembereditformComponent } from './admin/member form/membereditform/memb
 import { SocialmediaformComponent } from './admin/social media/socialmediaform/socialmediaform.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { SignupComponent } from './admin/signup/signup/signup.component';
+import { HomeComponent } from './User/home/home.component';
+import { FooterComponent } from './User/footer/footer.component';
+import { TrustComponent } from './User/trust/trust.component';
+import { UserNavComponent } from './User/user-nav/user-nav.component';
+import { FacilitiesComponent } from './User/facilities/facilities.component';
+import { OtherProjectsComponent } from './User/other-projects/other-projects.component';
+import { PhotoGalleryComponent } from './User/photo-gallery/photo-gallery.component';
+import { ContactUsComponent } from './User/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -42,14 +50,23 @@ import { SignupComponent } from './admin/signup/signup/signup.component';
     AddprojectsComponent,
     MembereditformComponent,
     SocialmediaformComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent,
+    FooterComponent,
+    TrustComponent,
+    UserNavComponent,
+    FacilitiesComponent,
+    OtherProjectsComponent,
+    PhotoGalleryComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgToastModule
+    NgToastModule,
+    ReactiveFormsModule
     
   ],
   providers: [{

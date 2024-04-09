@@ -60,27 +60,27 @@
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-12">
-                        <form #memberform="ngForm" (ngSubmit)="AddAdmin(memberform.value)">
+                        <form [formGroup]="profileForm" (ngSubmit)="AddAdmin()">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name"  class="form-control" id="name" ngModel >
+                                <input type="text"  class="form-control" id="name" formControlName="name" >
                             </div>
                             <div class="mb-3">
                                 <label for="last" class="form-label">Last</label>
-                                <input type="text" class="form-control" id="last" name="lastName"  ngModel>
+                                <input type="text" class="form-control" id="last" formControlName="lastName" >
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone"  ngModel>
+                                <input type="text" class="form-control" id="phone" formControlName="phone" >
                             </div>
                             <div class="mb-3">
                               <label for="email" class="form-label">Email</label>
-                              <input type="email" class="form-control" id="email" name="email"  ngModel>
+                              <input type="email" class="form-control" id="email" formControlName="email">
                             </div>
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"  ngModel>
+                                <input type="password" class="form-control" id="password" formControlName="password">
                             </div>
                             <!-- <div class="mb-3">
                                 <label for="cpassword" class="form-label">Confirm Password</label>
@@ -89,20 +89,20 @@
                         
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" name="address" ngModel>
+                                <input type="text" class="form-control" id="address" formControlName="address">
                             </div>
                             
                         
                             <div class="mb-3">
                                 <label for="" class="form-label">Member Type</label>
-                                <select name="memberType" id="memberType" class="form-control" #teams (change)="onSelected(teams.value)" ngModel>
+                                <select formControlName="memberType" id="memberType" class="form-control" #teams>
                                     <option selected value={{valueOfIndex}} *ngFor="let item of memberType; let valueOfIndex = index; " [value]="item">{{item}}</option>
                                 </select>
                             </div>
                         
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea name="description" id="description" cols="30" rows="5" class="form-control"  value="{{memberDetail.description}}" ngModel></textarea>
+                                <textarea formControlName="description" id="description" cols="30" rows="5" class="form-control"  value="{{memberDetail.description}}"></textarea>
                                 
                             </div>
                             
