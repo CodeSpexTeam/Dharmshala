@@ -31,6 +31,8 @@ import { FacilitiesComponent } from './User/facilities/facilities.component';
 import { OtherProjectsComponent } from './User/other-projects/other-projects.component';
 import { PhotoGalleryComponent } from './User/photo-gallery/photo-gallery.component';
 import { ContactUsComponent } from './User/contact-us/contact-us.component';
+import { LogoComponent } from './User/logo/logo.component';
+import { YouthsMarriageableComponent } from './User/youths-marriageable/youths-marriageable.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { ContactUsComponent } from './User/contact-us/contact-us.component';
     FacilitiesComponent,
     OtherProjectsComponent,
     PhotoGalleryComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    LogoComponent,
+    YouthsMarriageableComponent
   ],
   imports: [
     BrowserModule,

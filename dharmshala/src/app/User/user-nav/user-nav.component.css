@@ -3,8 +3,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-  }
+   }
   
   li {
     float: left;
@@ -25,3 +24,9 @@ ul {
   .active {
     background-color: #04AA6D;
   }
+
+  .nav-row{
+    background-color: #333;
+  }
+
+  

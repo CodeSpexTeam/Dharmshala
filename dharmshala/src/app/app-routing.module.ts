@@ -22,6 +22,7 @@ import { FacilitiesComponent } from './User/facilities/facilities.component';
 import { OtherProjectsComponent } from './User/other-projects/other-projects.component';
 import { PhotoGalleryComponent } from './User/photo-gallery/photo-gallery.component';
 import { ContactUsComponent } from './User/contact-us/contact-us.component';
+import { YouthsMarriageableComponent } from './User/youths-marriageable/youths-marriageable.component';
 
 const routes: Routes = [
   { path: 'admin', component: SigninComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'other-projects', component: OtherProjectsComponent },
   { path: 'photo-gallery', component: PhotoGalleryComponent },
   { path: 'contact-us', component: ContactUsComponent },
+  { path: 'youths-marriageable', component: YouthsMarriageableComponent },
 ];
 
 
