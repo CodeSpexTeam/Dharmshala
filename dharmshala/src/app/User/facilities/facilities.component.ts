@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { AuthserviceService } from 'src/app/admin/admin service/authservice/authservice.service';
+import { FacilityserviceService } from 'src/app/admin/admin service/facilityservices/facilityservice.service';
 
 @Component({
   selector: 'app-facilities',
@@ -9,7 +10,9 @@ import { AuthserviceService } from 'src/app/admin/admin service/authservice/auth
   styleUrls: ['./facilities.component.css']
 })
 export class FacilitiesComponent {
-  constructor(private authService:AuthserviceService, private router:Router, private toast:NgToastService){}
+  facilityDetail:any[]=[];
+  facilityObjectData :any = [];
+  constructor(private authService:AuthserviceService, private facilityService:FacilityserviceService, private router:Router, private toast:NgToastService){}
 
   ngOnInit(): void {
     
@@ -19,6 +22,52 @@ export class FacilitiesComponent {
 
     }
 
+    this.getFacilitiesDetail();
+
   }
 
+  getFacilitiesDetail(){
+    const test:any = [];
+    
+   
+   this.facilityService.getFacilityList().subscribe((res:any)=>{
+      this.facilityDetail = res;
+
+      this.facilityDetail.forEach(element => {
+          
+        if(!test.includes(element.facilityName)){
+          test.push(element.facilityName);
+        }
+      });
+
+    console.log(test)
+
+    
+    test.forEach((element:any) => {
+      this.facilityObjectData.push(this.facilityDetail.filter(x=>x.facilityName==element));
+    });
+
+    console.log(this.facilityObjectData)
+
+
+    });
+
+    
+   
+
+      
+
+    
+
+  
+
+
+
+  }
+
+
+
+
 }
+
+

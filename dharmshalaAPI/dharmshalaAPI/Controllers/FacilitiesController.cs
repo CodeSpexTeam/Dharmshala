@@ -23,7 +23,6 @@ namespace dharmshalaAPI.Controllers
         }
 
         // GET: api/Facilities
-        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Facility>>> GetFacilities()
         {

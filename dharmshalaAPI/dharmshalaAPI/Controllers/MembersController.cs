@@ -24,7 +24,7 @@ namespace dharmshalaAPI.Controllers
         }
 
         // GET: api/Members
-        [Authorize]
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Members>>> GetMembers()
         {
