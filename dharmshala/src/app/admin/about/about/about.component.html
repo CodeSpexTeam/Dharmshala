@@ -1,33 +1,28 @@
 <div class="container">
-    <div class="row">
-        <h1>Hello, {{fullName}}</h1>
-    </div>
+    
     <div class="row">
         <form #memberform="ngForm" (ngSubmit)="editMemberDetails(memberDetail.id ,memberform.value)">
             <div class="row d-flex">
                 <div class="col-6">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Name" value="{{memberDetail.name}}" ngModel>
-                        
+                        <label for="trustEmailId" class="form-label">Email Id</label>
+                        <input type="text" name="trustEmailId" class="form-control" id="trustEmailId" placeholder="Email Id" value="{{aboutDetail[0].trustEmailId}}" ngModel>
                     </div>
 
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="phone" name="phone" class="form-control" id="phone" placeholder="Phone" value="{{memberDetail.phone}}" ngModel>
+                        <label for="trustPhoneNumber" class="form-label">Phone</label>
+                        <input type="text" name="trustPhoneNumber" class="form-control" id="trustPhoneNumber" placeholder="Phone" value="{{aboutDetail[0].phone}}" ngModel>
                     </div>
 
                     <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" name="address" class="form-control" id="address" placeholder="address" value="{{memberDetail.address}}" ngModel>
+                        <label for="trustAddress" class="form-label">Address</label>
+                        <input type="text" name="trustAddress" class="form-control" id="trustAddress" placeholder="address" value="{{aboutDetail[0].address}}" ngModel>
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <input type="text" name="description" class="form-control" id="description" placeholder="description" value="{{memberDetail.description}}" ngModel>
+                        <label for="bookingNumber" class="form-label">Bokking Number</label>
+                        <input type="text" name="bookingNumber" class="form-control" id="bookingNumber" placeholder="bookingNumber" value="{{aboutDetail[0].bookingNumber}}" ngModel>
                     </div>
-
-
                 </div>
                 
             </div>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UdiTHmXLQnmtIVHICZWtHc7ET1UCc50knjFZeGGNW+I6SVEdqL+t7GL/e1E4ydydkLuYJ0OjNiKX/n7SE7eucQ==",
+  "dgSpecHash": "lTppWOZFdrrdnV3OC0lBGNPOlfkPN6aIRd2BtzhblHZStOBTAzgUNZiBO2iyS5pvUKma81XBQHjrgvJdwSKKpQ==",
   "success": true,
   "projectFilePath": "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj",
   "expectedPackageFiles": [
@@ -77,7 +77,7 @@
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
-    "C:\\Users\\nitro\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.27\\microsoft.data.sqlite.core.6.0.27.nupkg.sha512",
+    "C:\\Users\\nitro\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.28\\microsoft.data.sqlite.core.6.0.28.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.diasymreader\\1.3.0\\microsoft.diasymreader.1.3.0.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.dotnet.scaffolding.shared\\6.0.16\\microsoft.dotnet.scaffolding.shared.6.0.16.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0\\microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
@@ -85,8 +85,8 @@
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.0\\microsoft.entityframeworkcore.analyzers.7.0.0.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.0\\microsoft.entityframeworkcore.design.7.0.0.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.0\\microsoft.entityframeworkcore.relational.7.0.0.nupkg.sha512",
-    "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\6.0.27\\microsoft.entityframeworkcore.sqlite.6.0.27.nupkg.sha512",
-    "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\6.0.27\\microsoft.entityframeworkcore.sqlite.core.6.0.27.nupkg.sha512",
+    "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\6.0.28\\microsoft.entityframeworkcore.sqlite.6.0.28.nupkg.sha512",
+    "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\6.0.28\\microsoft.entityframeworkcore.sqlite.core.6.0.28.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.0\\microsoft.entityframeworkcore.sqlserver.7.0.0.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.0\\microsoft.entityframeworkcore.tools.7.0.0.nupkg.sha512",
     "C:\\Users\\nitro\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

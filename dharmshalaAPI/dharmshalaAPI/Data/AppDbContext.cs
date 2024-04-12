@@ -16,6 +16,8 @@ namespace dharmshalaAPI.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<SocialMedia> SocialMedia { get; set; }
         public DbSet<Auth> Auth { get; set; }
+        public DbSet<About> About { get; set; }
+        public DbSet<Feedback> Feedback { get; set; }
 
 
     }

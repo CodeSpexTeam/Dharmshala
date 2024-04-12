@@ -1,0 +1,63 @@
+<div class="container">
+   <div class="row p-5">
+        <div class="col">
+            <table class="table shadow-lg p-3 mb-5 bg-white rounded">
+                <thead>
+                  <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of feedbackList; let inumber=index">
+                    <td>{{inumber+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.email}}</td>
+                   <td>
+                        <div class="row">
+                            <div class="col-3">
+                                <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="viewComment(item.id)">View</a>
+                            </div>
+                            <div class="col-3">
+                                <a class="btn btn-danger" (click)="deleteFacility(item.id)">Delete</a>
+                            </div>
+                            
+                        </div>
+                    </td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+              <div class="col-12 text-center" *ngIf="feedbackList.length==0"> 
+                <h3>No Data !</h3>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+     <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Comment by {{feedback.name}}</h1>
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                </div>
+
+                <div class="modal-body">
+                    <p style="word-wrap: break-word;">
+                        {{feedback.comment}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

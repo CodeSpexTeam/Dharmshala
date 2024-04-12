@@ -1,22 +1,15 @@
 <div class="row d-flex justify-content-center py-3" style="background-color: #232323;  color: white;">
     <div class="col">
       <h3>Facilites</h3>
-      <ul>
-          <li>A/C, Non A/C Rooms</li>
-          <li>Halls</li>
-          <li>Kitchen</li>
-          <li>Space for Parking</li>
-          <li>Others</li>
+      <ul *ngFor="let item of topFourFacility">
+        
+        <li>{{item}}</li>
       </ul>
     </div>
     <div class="col">
       <h3>Project</h3>
-      <ul>
-          <li>Medical Camp</li>
-          <li>Help to School Students</li>
-          <li>Moksha Rath</li>
-          <li>Gas Based Funeral House</li>
-          <li>Temple</li>
+      <ul *ngFor="let item of topFourProject">
+          <li>{{item}}</li>
       </ul>
     </div>
     <div class="col">

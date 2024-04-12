@@ -33,6 +33,7 @@ import { PhotoGalleryComponent } from './User/photo-gallery/photo-gallery.compon
 import { ContactUsComponent } from './User/contact-us/contact-us.component';
 import { LogoComponent } from './User/logo/logo.component';
 import { YouthsMarriageableComponent } from './User/youths-marriageable/youths-marriageable.component';
+import { FeedbackComponent } from './admin/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { YouthsMarriageableComponent } from './User/youths-marriageable/youths-m
     PhotoGalleryComponent,
     ContactUsComponent,
     LogoComponent,
-    YouthsMarriageableComponent
+    YouthsMarriageableComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

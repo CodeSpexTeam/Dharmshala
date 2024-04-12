@@ -4,6 +4,7 @@ import { UserStoreService } from '../../admin service/userservice/user-store.ser
 import { MemberserviceService } from '../../admin service/memberservice/memberservice.service';
 import { NgToastService } from 'ng-angular-popup';
 import { Members } from '../../iterface/_memberInterface';
+import { AboutService } from '../../admin service/aboutservice/about.service';
 
 @Component({
   selector: 'app-about',
@@ -11,9 +12,10 @@ import { Members } from '../../iterface/_memberInterface';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
+  aboutDetail:any[]=[]
   memberDetail:any={}
   public fullName : string="";
-  constructor(private authService:AuthserviceService , private userStoreService:UserStoreService, private memberserive:MemberserviceService, private toast:NgToastService){}
+  constructor(private authService:AuthserviceService ,private aboutService:AboutService, private userStoreService:UserStoreService, private memberserive:MemberserviceService, private toast:NgToastService){}
 
   ngOnInit(): void {
 
@@ -24,12 +26,15 @@ export class AboutComponent {
       debugger
       this.getUser(adminId);
     });
+
+    this.getAbout();
    
   }
 
   getUser(adminId:number){
     this.memberserive.getMemberDetail(adminId).subscribe((res:any)=>{
       this.memberDetail =res;
+      console.log(this.memberDetail);
     },
     (error)=>{
       this.toast.error({detail:'Error Message', summary:error.error.message,duration:5000});
@@ -71,6 +76,17 @@ export class AboutComponent {
     );
   }
 
+
+  getAbout(){
+    this.aboutService.getAboutDetail().subscribe((res:any)=>{
+      this.aboutDetail= res;
+
+      console.log(this.aboutDetail);
+    })
+
+  }
+
+  
   
 
 }

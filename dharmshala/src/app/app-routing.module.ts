@@ -23,6 +23,7 @@ import { OtherProjectsComponent } from './User/other-projects/other-projects.com
 import { PhotoGalleryComponent } from './User/photo-gallery/photo-gallery.component';
 import { ContactUsComponent } from './User/contact-us/contact-us.component';
 import { YouthsMarriageableComponent } from './User/youths-marriageable/youths-marriageable.component';
+import { FeedbackComponent } from './admin/feedback/feedback.component';
 
 const routes: Routes = [
   { path: 'admin', component: SigninComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'social-media', component: SocialmediaComponent,canActivate: [AuthGuard] },
   { path: 'social-media-form', component: SocialmediaformComponent,canActivate: [AuthGuard]},
   { path: 'facility', component: FacilityComponent,canActivate: [AuthGuard] },
+  { path: 'feedback', component: FeedbackComponent,canActivate: [AuthGuard] },
   { path: 'sign-up', component: SignupComponent,canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },  // Wildcard route for a 404 page
 

@@ -4,6 +4,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { AuthserviceService } from 'src/app/admin/admin service/authservice/authservice.service';
 import { FacilityserviceService } from 'src/app/admin/admin service/facilityservices/facilityservice.service';
 
+
 @Component({
   selector: 'app-facilities',
   templateUrl: './facilities.component.html',
@@ -52,20 +53,7 @@ export class FacilitiesComponent {
 
     });
 
-    
-   
-
-      
-
-    
-
-  
-
-
-
   }
-
-
 
 
 }
