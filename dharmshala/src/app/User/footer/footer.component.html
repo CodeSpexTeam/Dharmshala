@@ -2,7 +2,6 @@
     <div class="col">
       <h3>Facilites</h3>
       <ul *ngFor="let item of topFourFacility">
-        
         <li>{{item}}</li>
       </ul>
     </div>
@@ -24,11 +23,10 @@
     </div>
     <div class="col">
       <h3>Contact Us</h3>
-      <ul>
-          <li>Email: ombansalshivshakti '' gmail.com</li>
-          <li>Phone: 0294 3570163</li>
-          <li>Adress: Hiralal Agrawal Marg, Hiran Magri Sector-11,
-              Udaipur-313001 (Raj.)</li>
+      <ul >
+          <li>Email: {{aboutDetail.trustEmailId}}</li>
+          <li>Phone: {{aboutDetail.trustPhoneNumber}}</li>
+          <li>Adress: {{aboutDetail.trustAddress}}</li>
           
       </ul>
     </div>

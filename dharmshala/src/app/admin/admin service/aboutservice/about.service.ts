@@ -12,13 +12,17 @@ export class AboutService {
 
 
   getAboutDetail(){
-    return this.http.get(`${this.baseUrl}/About`);
+    return this.http.get(`${this.baseUrl}/Abouts`);
   }
 
   saveAboutDetail(data:any){
-    return this.http.post(`${this.baseUrl}/About`, data);
+    return this.http.post(`${this.baseUrl}/Abouts`, data);
   }
 
+
+  updateAboutDetail(id:number, data:any){
+    return this.http.put(`${this.baseUrl}/Abouts/${id}`, data);
+  }
 
   
 

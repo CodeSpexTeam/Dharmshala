@@ -1,27 +1,30 @@
 <div class="container">
+    <div class="row">
+        <h3>Trust Information</h3>
+    </div>
     
     <div class="row">
-        <form #memberform="ngForm" (ngSubmit)="editMemberDetails(memberDetail.id ,memberform.value)">
+        <form #aboutform="ngForm" (ngSubmit)="editAboutDetails(aboutDetail.id,aboutform.value)">
             <div class="row d-flex">
                 <div class="col-6">
                     <div class="mb-3">
                         <label for="trustEmailId" class="form-label">Email Id</label>
-                        <input type="text" name="trustEmailId" class="form-control" id="trustEmailId" placeholder="Email Id" value="{{aboutDetail[0].trustEmailId}}" ngModel>
+                        <input type="text" class="form-control" id="trustEmailId" name="trustEmailId" placeholder="Email Id" value="{{aboutDetail.trustEmailId}}" ngModel>
                     </div>
 
                     <div class="mb-3">
                         <label for="trustPhoneNumber" class="form-label">Phone</label>
-                        <input type="text" name="trustPhoneNumber" class="form-control" id="trustPhoneNumber" placeholder="Phone" value="{{aboutDetail[0].phone}}" ngModel>
+                        <input type="text" class="form-control" id="trustPhoneNumber" name="trustPhoneNumber" placeholder="Phone" value="{{aboutDetail.trustPhoneNumber}}" ngModel >
                     </div>
 
                     <div class="mb-3">
                         <label for="trustAddress" class="form-label">Address</label>
-                        <input type="text" name="trustAddress" class="form-control" id="trustAddress" placeholder="address" value="{{aboutDetail[0].address}}" ngModel>
+                        <input type="text"  class="form-control" id="trustAddress" name="trustAddress" placeholder="address" value="{{aboutDetail.trustAddress}}" ngModel >
                     </div>
 
                     <div class="mb-3">
                         <label for="bookingNumber" class="form-label">Bokking Number</label>
-                        <input type="text" name="bookingNumber" class="form-control" id="bookingNumber" placeholder="bookingNumber" value="{{aboutDetail[0].bookingNumber}}" ngModel>
+                        <input type="text" class="form-control" id="bookingNumber" name="bookingNumber" placeholder="bookingNumber" value="{{aboutDetail.bookingNumber}}" ngModel>
                     </div>
                 </div>
                 

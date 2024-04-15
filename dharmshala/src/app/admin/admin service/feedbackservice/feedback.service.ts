@@ -24,5 +24,9 @@ export class FeedbackService {
     return this.http.get(`${this.baseUrl}/Feedbacks/${id}`);
   }
 
+  addFeedback(data:any){
+    return this.http.post(`${this.baseUrl}/Feedbacks`, data);
+  }
+
 
 }

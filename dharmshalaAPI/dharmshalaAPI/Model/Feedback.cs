@@ -9,6 +9,7 @@
         public string? Email { get; set; }
         public string? RoomType { get; set; }
         public string? Comment { get; set; }
+        public DateTime Date { get; set; }
         public DateTime UpdatedDate { get; set; }
         public DateTime CreatedDate { get; set; }
     }

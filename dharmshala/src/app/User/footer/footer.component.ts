@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AboutService } from 'src/app/admin/admin service/aboutservice/about.service';
 import { FacilityserviceService } from 'src/app/admin/admin service/facilityservices/facilityservice.service';
 import { ProjectserviceService } from 'src/app/admin/admin service/projectservice/projectservice.service';
 
@@ -12,14 +13,16 @@ export class FooterComponent {
   facilityDetail:any[]=[]
   topFourFacility:any = [];
   topFourProject:any = [];
+  aboutDetail:any={};
  
-  constructor(private projectService:ProjectserviceService, private facilityService:FacilityserviceService ){}
+  constructor(private projectService:ProjectserviceService,private aboutService:AboutService, private facilityService:FacilityserviceService ){}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.getFacilitiesDetail();
     this.getprojectDetail();
+    this.getAbout();
   }
 
 
@@ -73,16 +76,17 @@ export class FooterComponent {
 
       console.log(this.topFourProject);
 
-
-
     })
       
   }
 
 
-
-  
-
+  getAbout(){
+    this.aboutService.getAboutDetail().subscribe((res:any)=>{
+      this.aboutDetail = res[0];
+      console.log(this.aboutDetail)
+    })
+  }
 
 
 }

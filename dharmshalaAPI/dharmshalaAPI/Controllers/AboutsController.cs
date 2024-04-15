@@ -57,9 +57,11 @@ namespace dharmshalaAPI.Controllers
         {
             if (id != about.Id)
             {
-                return BadRequest();
+                return BadRequest(new { Message = "data not found!" });
             }
 
+
+            about.UpdatedDate = DateTime.Now;
             _context.Entry(about).State = EntityState.Modified;
 
             try
@@ -70,7 +72,7 @@ namespace dharmshalaAPI.Controllers
             {
                 if (!AboutExists(id))
                 {
-                    return NotFound();
+                    return BadRequest(new { Message = "data not found!" });
                 }
                 else
                 {
@@ -78,7 +80,7 @@ namespace dharmshalaAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(new {Message="Data has been Updated!"});
         }
 
         // POST: api/Abouts
