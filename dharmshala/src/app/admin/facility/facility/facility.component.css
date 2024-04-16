@@ -1,3 +1,49 @@
 .group-btn{
     background-color: #F1F1F1;
 }
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.547); /* Adjust the background color and opacity */
+    display: block;
+    }
+   
+    .overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    width: 50%;
+    }
+   
+    .image-container.clicked .overlay {
+    display: flex;
+    }
+    .close {
+    background-color: #000000;
+    border: 2px solid #000000;
+    font-size: 30px;
+    color: #f5eeee;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 20px;
+    transition: background-color 0.3s;
+    margin-right: 22%;
+    }
+   
+    .overlay-content >img  {
+    width: 100%;
+    }
+

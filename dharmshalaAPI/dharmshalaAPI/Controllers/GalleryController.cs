@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using dharmshalaAPI.Data;
 using dharmshalaAPI.Model;
+using dharmshalaAPI.HelperModal;
+using dharmshalaAPI.Helper;
 
 namespace dharmshalaAPI.Controllers
 {
@@ -84,18 +86,51 @@ namespace dharmshalaAPI.Controllers
         // POST: api/Gallery
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Gallery>> PostGallery(Gallery gallery)
+        public async Task<ActionResult<Gallery>> PostGallery([FromForm]GalleryModel galleryModel)
         {
           if (_context.Gallery == null)
           {
               return Problem("Entity set 'AppDbContext.Gallery'  is null.");
           }
-            gallery.UpdatedDate = DateTime.Now; 
-            gallery.CreatedDate = DateTime.Now;
+
+
+            IFormFile imageName = galleryModel.ImageName;
+
+            if (imageName == null || imageName.Length == 0)
+            {
+                return BadRequest("Please select an image to upload.");
+            }
+
+
+            List<String> supportedFormats = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+            if (!supportedFormats.Contains(Path.GetExtension(imageName.FileName.ToLower())))
+            {
+                return BadRequest("Invalid Image Format. Supported Formats:" + string.Join(",", supportedFormats));
+            }
+
+
+
+            ImageHelper imagehelper = new ImageHelper();
+            var image = await imagehelper.StoreImage(imageName);
+
+            if (imageName == null)
+            {
+                return BadRequest("Image Storage Failed!");
+            }
+
+            Gallery gallery = new Gallery()
+            {
+                Title = galleryModel.Title,
+                Image = image,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+            };
+
             _context.Gallery.Add(gallery);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetGallery", new { id = gallery.Id }, gallery);
+
         }
 
         // DELETE: api/Gallery/5

@@ -13,6 +13,8 @@ import { FacilityserviceService } from 'src/app/admin/admin service/facilityserv
 export class FacilitiesComponent {
   facilityDetail:any[]=[];
   facilityObjectData :any = [];
+  isClicked:boolean = false;
+  clickedImageSrc:string|undefined;
   constructor(private authService:AuthserviceService, private facilityService:FacilityserviceService, private router:Router, private toast:NgToastService){}
 
   ngOnInit(): void {
@@ -54,6 +56,19 @@ export class FacilitiesComponent {
     });
 
   }
+
+
+  public onImageClick(imageSrc: string) {
+    console.log("function clicked!")
+    this.isClicked = true;
+    this.clickedImageSrc = imageSrc;
+  }
+
+
+  closeOverlay(event:any): void {
+    console.log(event)
+     this.isClicked = false;
+   }
 
 
 }

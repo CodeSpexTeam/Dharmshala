@@ -15,7 +15,10 @@ export class FacilityComponent {
   facilityDetail:any[]=[];
   facilityDetails:any={}
   removeImageBtn:boolean = false;
-
+  isClicked:boolean = false;
+  clickedImageSrc:string|undefined;
+  selectedFile: File | undefined;
+  
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -27,6 +30,8 @@ export class FacilityComponent {
   getAllFacility(){
     this.facilityService.getFacilityList().subscribe((res:any)=>{
       this.facilityDetail = res;
+
+      console.log(this.facilityDetail);
     });
   }
 
@@ -45,6 +50,11 @@ export class FacilityComponent {
       this.facilityDetails = res;
       console.log(this.facilityDetails);
     });
+  }
+
+
+  handleFileInput(event:any){
+    this.selectedFile = event.target.files[0];
   }
 
   editFacilityDetails(id:number, data:any){
@@ -69,7 +79,26 @@ export class FacilityComponent {
     });
 
 
-    this.facilityService.updatedFacility(this.facilityDetails).subscribe((res:any)=>{
+    console.log( this.facilityDetails);
+
+
+    debugger
+    if (!this.selectedFile) {
+      console.error('Please select a profile image.');
+      return;
+    }
+
+
+
+    const formData = new FormData();
+
+    formData.append('id', this.facilityDetails.id);
+    formData.append('facilityName', this.facilityDetails.facilityName);
+    formData.append('fees',  this.facilityDetails.fees);
+    formData.append('description',  this.facilityDetails.description);
+    formData.append('imageName',this.selectedFile);
+
+    this.facilityService.updatedFacility(id,formData).subscribe((res:any)=>{
       this.closeModal();
       this.getAllFacility();
       this.toast.success({detail:'Success Message', summary:res.message, duration:5000})
@@ -85,7 +114,6 @@ export class FacilityComponent {
   removeImage(id:any){
     this.facilityService.deleteFacilityImages(id).subscribe((res)=>{
       this.facilityDetails = res;
-      console.log(this.facilityDetails);
     },
     (error)=>{
       this.toast.error({detail:'Error Message',summary:error.message, duration:5000});
@@ -99,8 +127,25 @@ export class FacilityComponent {
     const cancelButton = document.querySelector('[data-bs-dismiss="modal"]')  as HTMLButtonElement;
     if (cancelButton) {
       cancelButton.click();
+      window.location.reload();
     }
+
+    
   }
+
+  public onImageClick(imageSrc: string) {
+    console.log("function clicked!")
+    this.isClicked = true;
+    this.clickedImageSrc = imageSrc;
+  }
+
+
+  closeOverlay(event:any): void {
+    console.log(event)
+     this.isClicked = false;
+   }
+  
+
 
  
   

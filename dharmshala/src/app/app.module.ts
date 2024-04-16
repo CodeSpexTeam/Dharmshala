@@ -34,6 +34,7 @@ import { ContactUsComponent } from './User/contact-us/contact-us.component';
 import { LogoComponent } from './User/logo/logo.component';
 import { YouthsMarriageableComponent } from './User/youths-marriageable/youths-marriageable.component';
 import { FeedbackComponent } from './admin/feedback/feedback.component';
+import { ImagemodalComponent } from './admin/imagemodal/imagemodal.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { FeedbackComponent } from './admin/feedback/feedback.component';
     ContactUsComponent,
     LogoComponent,
     YouthsMarriageableComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    ImagemodalComponent
   ],
   imports: [
     BrowserModule,

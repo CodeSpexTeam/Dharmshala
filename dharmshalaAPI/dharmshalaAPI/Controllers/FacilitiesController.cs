@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using dharmshalaAPI.Data;
 using dharmshalaAPI.Model;
 using Microsoft.AspNetCore.Authorization;
+using dharmshalaAPI.Helper;
+using dharmshalaAPI.HelperModal;
 
 namespace dharmshalaAPI.Controllers
 {
@@ -54,14 +56,53 @@ namespace dharmshalaAPI.Controllers
         // PUT: api/Facilities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFacility(int id, Facility facility)
+        public async Task<IActionResult> PutFacility(int id, [FromForm] FacilityModel facilityModel)
         {
-            if (id != facility.Id)
+            if (id != facilityModel.Id)
             {
                 return BadRequest(new {Message="Not Found!"});
             }
 
+            IFormFile imageName = facilityModel.ImageName;
+
+            if (imageName == null || imageName.Length == 0)
+            {
+                return BadRequest("Please select an image to upload.");
+            }
+
+
+            List<String> supportedFormats = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+            if (!supportedFormats.Contains(Path.GetExtension(imageName.FileName.ToLower())))
+            {
+                return BadRequest("Invalid Image Format. Supported Formats:" + string.Join(",", supportedFormats));
+            }
+
+
+            ImageHelper imagehelper = new ImageHelper();
+            var image = await imagehelper.StoreImage(imageName);
+
+            if (imageName == null)
+            {
+                return BadRequest("Image Storage Failed!");
+            }
+
+
+            Facility facility = new Facility()
+            {
+                Id = facilityModel.Id,
+                FacilityName = facilityModel.FacilityName,
+                Image = image,
+                Description = facilityModel.Description,
+                Fees = facilityModel.Fees,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+
+
+            };
+
             _context.Entry(facility).State = EntityState.Modified;
+
+           // _context.Update(facility);
 
             try
             {
@@ -85,18 +126,59 @@ namespace dharmshalaAPI.Controllers
         // POST: api/Facilities
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Facility>> PostFacility(Facility facility)
+        public async Task<ActionResult<Facility>> PostFacility([FromForm] FacilityModel facilityModel)
         {
           if (_context.Facilities == null)
           {
               return Problem("Entity set 'AppDbContext.Facilities'  is null.");
           }
-            facility.CreatedDate = DateTime.Now;
-            facility.UpdatedDate = DateTime.Now;
-            _context.Facilities.Add(facility);
+
+            IFormFile imageName = facilityModel.ImageName;
+
+            if (imageName == null || imageName.Length == 0)
+            {
+                return BadRequest("Please select an image to upload.");
+            }
+
+
+            List<String> supportedFormats = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+            if (!supportedFormats.Contains(Path.GetExtension(imageName.FileName.ToLower())))
+            {
+                return BadRequest("Invalid Image Format. Supported Formats:" + string.Join(",", supportedFormats));
+            }
+            try
+            {
+                ImageHelper imagehelper = new ImageHelper();
+            var image= await imagehelper.StoreImage(imageName);
+
+            if (imageName == null)
+            {
+                return BadRequest("Image Storage Failed!");
+            }
+
+
+                Facility facility = new Facility()
+                {
+                    FacilityName = facilityModel.FacilityName,
+                    Image = image,
+                    Description = facilityModel.Description,
+                    Fees = facilityModel.Fees,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now,
+
+
+                };
+
+           _context.Facilities.Add(facility);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetFacility", new { id = facility.Id}, facility);
+
+            }
+            catch
+            {
+                return StatusCode(500, "Internal Server Error");
+            }
         }
 
         // DELETE: api/Facilities/5
@@ -133,11 +215,18 @@ namespace dharmshalaAPI.Controllers
                 return BadRequest(new {Message="Not Found Data"});
             }
 
+
+            RemoveFile removeFile = new RemoveFile();
+
+            var test =  removeFile.RemoveFileFromFolder(@"D:\CodespexTeam Project\Dharmshala\Dharmshala\dharmshala\src\"+ facility.Image);
+
             facility.Image = null;
             facility.UpdatedDate=DateTime.Now;
 
             _context.Facilities.Update(facility);
             await _context.SaveChangesAsync();
+
+            
 
             return Ok(facility);
         }

@@ -2,7 +2,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-6">
             <h3>Add Facility</h3>
-            <form #facilityForm="ngForm" (ngSubmit)="OnSubmitFacility(facilityForm.value)">
+            <form #facilityForm="ngForm" (ngSubmit)="OnSubmitFacility(facilityForm.value)" >
                 <div class="mb-3">
                     <label for="facility" class="form-label">Facility</label>
                     <input type="text" name="facilityName" class="form-control" id="facility" aria-describedby="emailHelp" ngModel>
@@ -14,7 +14,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="image" class="form-label">Image</label>
-                  <input type="file" name="image" class="form-control" id="image" aria-describedby="emailHelp" ngModel>
+                  <input type="file" class="form-control" id="image" aria-describedby="emailHelp" (change)="handleFileInput($event)" >
                 </div>
 
                 <div class="mb-3">

@@ -15,7 +15,7 @@
                 <tbody >
                    <tr *ngFor="let Facility of group">
                         <td >
-                            <a href="">{{Facility.description}}</a>
+                            <span class="facilityname" style="text-decoration: underline; color: #B51B1B;  " (click)="onImageClick(Facility.image)">{{Facility.description}}</span>
                         </td>
                         <td>Rs.  {{Facility.fees}}/- Per Room Per Day</td>
                     </tr>
@@ -53,6 +53,27 @@
   
     
 </div>
+<!-- moalda -->
+
+<div class="overlay-backdrop" *ngIf="isClicked"></div>
+<div class="overlay" *ngIf="isClicked">
+  <div class="row">
+    <div class="col-xl-12 mt-3">
+      <button type="button" class="close float-end" aria-label="Close" (click)="closeOverlay($event)">
+        <i class="bi bi-x-circle"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center ">
+    <div class="col-6">
+        <img [src]="clickedImageSrc" alt="" class="img-fluid">
+    </div>
+  </div>
+  
+</div>
+
+
+
 
 
 <app-footer></app-footer>

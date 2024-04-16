@@ -9,11 +9,14 @@ import { AuthserviceService } from './admin/admin service/authservice/authservic
 export class AppComponent {
   title = 'dharmshala';
   islogin:boolean = false;
+  
   constructor(private authService:AuthserviceService){}
 
   ngOnInit(): void {
     this.islogin  = this.authService.isLoggedIn();
   }
   
+
+
 
 }

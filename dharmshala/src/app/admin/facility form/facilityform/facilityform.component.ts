@@ -10,6 +10,8 @@ import { Route, Router } from '@angular/router';
 })
 export class FacilityformComponent {
 
+  selectedFile: File | undefined;
+
   constructor(private facilityService:FacilityserviceService,private toast:NgToastService, private router:Router){}
 
   ngOnInit(): void {
@@ -18,8 +20,30 @@ export class FacilityformComponent {
     
   }
 
+  handleFileInput(event:any){
+    this.selectedFile = event.target.files[0];
+  }
+
   OnSubmitFacility(data:any){
-    this.facilityService.addFacility(data).subscribe((res:any)=>{
+
+    if (!this.selectedFile) {
+      console.error('Please select a profile image.');
+      return;
+    }
+
+
+
+    const formData = new FormData();
+    formData.append('facilityName', data.facilityName);
+    formData.append('fees', data.fees);
+    formData.append('description', data.description);
+    formData.append('imageName',this.selectedFile);
+   
+    
+   
+
+debugger
+    this.facilityService.addFacility(formData).subscribe((res:any)=>{
       console.log(res);
       this.router.navigate(['/facility']);
       this.toast.success({detail:'Success Message', summary:"New facility has been added!", duration:5000});
@@ -31,5 +55,8 @@ export class FacilityformComponent {
     );
 
   }
+
+
+  
 
 }

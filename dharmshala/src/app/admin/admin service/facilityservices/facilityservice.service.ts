@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 
@@ -9,6 +9,8 @@ export class FacilityserviceService {
 
   constructor(private http: HttpClient) { }
   baseUrl = environment.apiUrl;
+
+
 
   public getFacilityList(){
     return this.http.get(`${this.baseUrl}/Facilities`);
@@ -30,8 +32,8 @@ export class FacilityserviceService {
     return this.http.post(`${this.baseUrl}/Facilities`, data);
   }
 
-  public updatedFacility(data:any){
+  public updatedFacility(id:number,data:any){
     debugger
-    return this.http.put(`${this.baseUrl}/Facilities/${data.id}`, data);
+    return this.http.put(`${this.baseUrl}/Facilities/${id}`, data);
   }
 }
