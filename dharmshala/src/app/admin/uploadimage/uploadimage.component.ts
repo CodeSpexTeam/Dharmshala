@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class UploadimageComponent {
 
+  selectedFile: File | undefined;
+
   constructor(private galleryService:GalleryserviceService, private toast:NgToastService, private router:Router){}
 
   ngOnInit(): void {
@@ -18,14 +20,28 @@ export class UploadimageComponent {
     
   }
 
+
+  handleFileInput(event:any){
+    this.selectedFile = event.target.files[0];
+  }
+
   onSubmitImage(data:any){
-    this.galleryService.addGallery(data).subscribe((res:any)=>{
+    if (!this.selectedFile) {
+      console.error('Please select a profile image.');
+      return;
+    }
+
+    const formData = new FormData();
+      formData.append('title', data.title);
+      formData.append('imageName',this.selectedFile);
+
+    this.galleryService.addGallery(formData).subscribe((res:any)=>{
       this.router.navigate(['/gallery']);
       this.toast.success({detail:'Success Message', summary:'New Record has been Addded!', duration:5000});
     },
     (error)=>{
       this.router.navigate(['/gallery']);
-      this.toast.success({detail:'Success Message', summary:error.message, duration:5000});
+      this.toast.error({detail:'Success Message', summary:error.message, duration:5000});
     });
   }
 

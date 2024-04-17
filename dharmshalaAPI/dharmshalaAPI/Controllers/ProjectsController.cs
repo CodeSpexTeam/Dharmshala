@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using dharmshalaAPI.Data;
 using dharmshalaAPI.Model;
+using dharmshalaAPI.HelperModal;
+using dharmshalaAPI.Helper;
 
 namespace dharmshalaAPI.Controllers
 {
@@ -53,12 +55,45 @@ namespace dharmshalaAPI.Controllers
         // PUT: api/Projects/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProject(int id, Project project)
+        public async Task<IActionResult> PutProject(int id, [FromForm] ProjectModel projectModel)
         {
-            if (id != project.Id)
+            if (id != projectModel.Id)
             {
                 return BadRequest(new { Message = "Not Found!" });
             }
+
+            IFormFile imageName = projectModel.ImageName;
+
+            if (imageName == null || imageName.Length == 0)
+            {
+                return BadRequest("Please select an image to upload.");
+            }
+
+
+            List<String> supportedFormats = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+            if (!supportedFormats.Contains(Path.GetExtension(imageName.FileName.ToLower())))
+            {
+                return BadRequest("Invalid Image Format. Supported Formats:" + string.Join(",", supportedFormats));
+            }
+
+
+            ImageHelper imagehelper = new ImageHelper();
+            var image = await imagehelper.StoreImage(imageName);
+
+            if (imageName == null)
+            {
+                return BadRequest("Image Storage Failed!");
+            }
+
+            Project project = new Project()
+            {
+                Id = projectModel.Id,
+                Title = projectModel.Title,
+                Image = image,
+                Description = projectModel.Description,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+            };
 
             _context.Entry(project).State = EntityState.Modified;
 
@@ -84,15 +119,46 @@ namespace dharmshalaAPI.Controllers
         // POST: api/Projects
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Project>> PostProject(Project project)
+        public async Task<ActionResult<Project>> PostProject([FromForm] ProjectModel projectModel)
         {
           if (_context.Projects == null)
           {
               return Problem("Entity set 'AppDbContext.Projects'  is null.");
           }
 
-            project.UpdatedDate = DateTime.Now; 
-            project.CreatedDate = DateTime.Now;
+
+
+            IFormFile imageName = projectModel.ImageName;
+
+            if (imageName == null || imageName.Length == 0)
+            {
+                return BadRequest("Please select an image to upload.");
+            }
+
+
+            List<String> supportedFormats = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+            if (!supportedFormats.Contains(Path.GetExtension(imageName.FileName.ToLower())))
+            {
+                return BadRequest("Invalid Image Format. Supported Formats:" + string.Join(",", supportedFormats));
+            }
+
+            ImageHelper imagehelper = new ImageHelper();
+            var image = await imagehelper.StoreImage(imageName);
+
+            if (imageName == null)
+            {
+                return BadRequest("Image Storage Failed!");
+            }
+
+            Project project = new Project()
+            {
+                Title = projectModel.Title,
+                Image = image,
+                Description = projectModel.Description,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+            };
+
             _context.Projects.Add(project);
             await _context.SaveChangesAsync();
 
@@ -112,6 +178,10 @@ namespace dharmshalaAPI.Controllers
             {
                 return BadRequest(new { Message = "Not Found!" });
             }
+
+            RemoveFile removeFile = new RemoveFile();
+
+            var test = removeFile.RemoveFileFromFolder(@"D:\CodespexTeam Project\Dharmshala\Dharmshala\dharmshala\src\" + project.Image);
 
             _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
@@ -133,6 +203,10 @@ namespace dharmshalaAPI.Controllers
             {
                 return BadRequest(new { Message = "Not Found Data" });
             }
+
+            RemoveFile removeFile = new RemoveFile();
+
+            var test = removeFile.RemoveFileFromFolder(@"D:\CodespexTeam Project\Dharmshala\Dharmshala\dharmshala\src\" + project.Image);
 
             project.Image = null;
             project.UpdatedDate = DateTime.Now;

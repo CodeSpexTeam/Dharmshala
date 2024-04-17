@@ -13,6 +13,9 @@ export class GalleryComponent {
   
   galleryList:any[]=[];
   galleryDetails:any={};
+  isClicked:boolean = false;
+  clickedImageSrc:string|undefined;
+  // selectedFile: File | undefined;
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -94,6 +97,21 @@ export class GalleryComponent {
       cancelButton.click();
     }
   }
+
+
+  
+  public onImageClick(imageSrc: string) {
+    console.log("function clicked!")
+    this.isClicked = true;
+    this.clickedImageSrc = imageSrc;
+  }
+
+
+  closeOverlay(event:any): void {
+    console.log(event)
+     this.isClicked = false;
+   }
+  
 
 
 

@@ -78,7 +78,7 @@
                                 <label for="image" class="form-label">Image</label>
                                 <div *ngIf="facilityDetails.image!=null">
                                     <img src="{{facilityDetails.image}}" alt="image" width="40px" height="30px">
-                                    <i type="btn" (click)="removeImage(facilityDetails.id)">Remove </i>
+                                    <i style="margin-left: 20px;"  class="bi bi-trash" type="btn" (click)="removeImage(facilityDetails.id)">Remove </i>
                                 </div>
                                 <div *ngIf="facilityDetails.image==null">
                                     <input type="file" class="form-control" id="image" value=""(change)="handleFileInput($event)">

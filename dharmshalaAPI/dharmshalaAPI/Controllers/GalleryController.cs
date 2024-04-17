@@ -86,7 +86,7 @@ namespace dharmshalaAPI.Controllers
         // POST: api/Gallery
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Gallery>> PostGallery([FromForm]GalleryModel galleryModel)
+        public async Task<ActionResult<Gallery>> PostGallery( [FromForm] GalleryModel galleryModel)
         {
           if (_context.Gallery == null)
           {
@@ -147,6 +147,10 @@ namespace dharmshalaAPI.Controllers
                 return NotFound();
             }
 
+            RemoveFile removeFile = new RemoveFile();
+
+            var test = removeFile.RemoveFileFromFolder(@"D:\CodespexTeam Project\Dharmshala\Dharmshala\dharmshala\src\" + gallery.Image);
+
             _context.Gallery.Remove(gallery);
             await _context.SaveChangesAsync();
 
@@ -168,7 +172,11 @@ namespace dharmshalaAPI.Controllers
                 return BadRequest(new { Message = "Not Found!" }); ;
             }
 
-            gallery.Image = "";
+            RemoveFile removeFile = new RemoveFile();
+
+            var test = removeFile.RemoveFileFromFolder(@"D:\CodespexTeam Project\Dharmshala\Dharmshala\dharmshala\src\" + gallery.Image);
+
+            gallery.Image = null;
             gallery.UpdatedDate = DateTime.Now;
             _context.Gallery.Update(gallery);
             await _context.SaveChangesAsync();

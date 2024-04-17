@@ -15,6 +15,10 @@ export class ProjectsComponent {
 
   ProjectsList:any[]=[]
   projectsDetails:any={};
+
+  isClicked:boolean = false;
+  clickedImageSrc:string|undefined;
+  selectedFile: File | undefined;
   
 
   ngOnInit(): void {
@@ -27,6 +31,7 @@ export class ProjectsComponent {
   getAllProjects(){
     this.projectService.getProjectList().subscribe((res:any)=>{
       this.ProjectsList = res;
+      console.log(this.ProjectsList);
     })
   }
 
@@ -46,6 +51,10 @@ export class ProjectsComponent {
         this.projectsDetails = res;
   });
     
+  }
+
+  handleFileInput(event:any){
+    this.selectedFile = event.target.files[0];
   }
 
   editProjectDetails(id:number, data:any){
@@ -70,7 +79,22 @@ export class ProjectsComponent {
     });
 
 
-    this.projectService.updateProject(this.projectsDetails).subscribe((res:any)=>{
+    if (!this.selectedFile) {
+      console.error('Please select a profile image.');
+      return;
+    }
+
+
+
+    const formData = new FormData();
+
+    formData.append('id', this.projectsDetails.id);
+    formData.append('title', this.projectsDetails.title);
+    formData.append('description',  this.projectsDetails.description);
+    formData.append('imageName',this.selectedFile);
+
+
+    this.projectService.updateProject(id,formData).subscribe((res:any)=>{
       this.closeModal();
       this.getAllProjects();
       this.toast.success({detail:'Success Message', summary:res.message, duration:5000})
@@ -96,9 +120,22 @@ export class ProjectsComponent {
     const cancelButton = document.querySelector('[data-bs-dismiss="modal"]')  as HTMLButtonElement;
     if (cancelButton) {
       cancelButton.click();
+      window.location.reload();
     }
   }
 
+
+  public onImageClick(imageSrc: string) {
+    console.log("function clicked!")
+    this.isClicked = true;
+    this.clickedImageSrc = imageSrc;
+  }
+
+
+  closeOverlay(event:any): void {
+    console.log(event)
+     this.isClicked = false;
+   }
 
 
   

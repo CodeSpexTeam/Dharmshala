@@ -19,7 +19,7 @@
                     <th scope="row">{{indexOfelement+1}}</th>
                     <td>{{item.title}}</td>
                     <td>
-                        <img src={{item.imgae}} alt="Service-Image">
+                        <img  src={{item.image}} alt="Image" (click)="onImageClick(item.image)" style="height: 50px; width: 60px;" >
                     </td>
                     <td>
                         <div style="width: 200px; max-height: 100px; overflow: hidden;">
@@ -55,7 +55,7 @@
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Project Detail</h1>
           
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal() "></button>
         </div>
         <div class="modal-body">
 
@@ -69,12 +69,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
-                                <div *ngIf="projectsDetails.image!=null">
-                                    <img src="{{projectsDetails.image}}" alt="image">
-                                    <i type="btn" (click)="removeImage(projectsDetails.id)">Remove </i>
+                                <div *ngIf="projectsDetails.image!=null" class="align-right">
+                                    <img src="{{projectsDetails.image}}" alt="image" width="40px" height="30px">
+                                    <i style="margin-left: 20px;" class="bi bi-trash" type="btn" (click)="removeImage(projectsDetails.id)">Remove </i>
                                 </div>
                                 <div *ngIf="projectsDetails.image==null">
-                                    <input type="file" class="form-control" id="image" name="image" value="" ngModel>
+                                    <input type="file" class="form-control" id="image" name="image" value="" (change)="handleFileInput($event)">
                                 </div>
                                 
                             </div>
@@ -88,7 +88,7 @@
                                     <button type="submit" class="btn submit-btn  btn-dark">Submit</button> 
                                 </div>
                                 <div class="col-3">
-                                    <button type="button" id="closeModal" class="btn btn-danger ml-5" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" id="closeModal" class="btn btn-danger ml-5" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
                                 </div>
                             </div>
 
@@ -105,4 +105,24 @@
     </div>
   </div>
 
+</div>
+
+
+<!-- moalda -->
+
+<div class="overlay-backdrop" *ngIf="isClicked"></div>
+<div class="overlay" *ngIf="isClicked">
+  <div class="row">
+    <div class="col-xl-12 mt-3">
+      <button type="button" class="close float-end" aria-label="Close" (click)="closeOverlay($event)">
+        <i class="bi bi-x-circle"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center ">
+    <div class="col-6">
+        <img [src]="clickedImageSrc" alt="" class="img-fluid">
+    </div>
+  </div>
+  
 </div>

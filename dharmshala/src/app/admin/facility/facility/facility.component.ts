@@ -81,8 +81,6 @@ export class FacilityComponent {
 
     console.log( this.facilityDetails);
 
-
-    debugger
     if (!this.selectedFile) {
       console.error('Please select a profile image.');
       return;

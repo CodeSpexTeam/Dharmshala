@@ -10,7 +10,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="image" class="form-label">Image</label>
-                  <input type="file" class="form-control" name="image" id="image" aria-describedby="emailHelp" ngModel>
+                  <input type="file" class="form-control" name="image" id="image" aria-describedby="emailHelp" (change)="handleFileInput($event)">
                 </div>
                 <button type="submit" class="btn submit-btn">Submit</button>
             </form>

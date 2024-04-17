@@ -10,10 +10,28 @@ import { Router } from '@angular/router';
 })
 export class AddprojectsComponent {
 
+  selectedFile: File | undefined;
+
   constructor(private projectService:ProjectserviceService,private toast:NgToastService, private router:Router){}
 
+  handleFileInput(event:any){
+    this.selectedFile = event.target.files[0];
+  }
+
+
   OnSubmitProjects(data:any){
-    this.projectService.addProject(data).subscribe((res:any)=>{
+
+    if (!this.selectedFile) {
+      console.error('Please select a profile image.');
+      return;
+    }
+
+    const formData = new FormData();
+      formData.append('title', data.title);
+      formData.append('description',data.description);
+      formData.append('imageName',this.selectedFile);
+
+    this.projectService.addProject(formData).subscribe((res:any)=>{
       this.router.navigate(['/projects']);
       this.toast.success({detail:'Success Message', summary:'Product has been added successfuly!', duration:5000});
     },

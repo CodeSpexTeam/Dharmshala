@@ -22,8 +22,8 @@ export class ProjectserviceService {
     return this.http.post(`${this.baseUrl}/Projects`, data);
   }
 
-  public updateProject(data:any){
-    return this.http.put(`${this.baseUrl}/Projects/${data.id}`, data);
+  public updateProject(id:number,data:any){
+    return this.http.put(`${this.baseUrl}/Projects/${id}`, data);
   }
 
   public deleteProject(id:number){
