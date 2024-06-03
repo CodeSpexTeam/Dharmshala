@@ -1,6 +1,114 @@
-<app-user-nav></app-user-nav>
-<app-logo></app-logo>
-<div class="container my-5" >
+<!-- <app-user-nav></app-user-nav> -->
+
+<div class="primary-background heading-div text-white mb-4">
+    <h2>Contact Us</h2>
+</div>
+<!-- reach us -->
+<div class="container-fluid py-5 ">
+    <div class="container align-items-center">
+        <div class="text-center mb-5">
+            <h5 class="text-capitalize mb-2 text_primary">Reach Us</h5>
+            <p>Reach Us For Any Query</p>
+        </div>
+        <div class="row gap-3 mx-auto">
+            <div class="col-xl-3 col-lg-3 col-md-6 text-center text-sm-left border contact-card">
+                <div class="d-flex flex-column">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <p class="primary-text-color mb-1">For Enquiry</p>
+                </div>
+                <p class="contact-text">{{aboutDetail.trustPhoneNumber}}</p>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 text-center text-sm-left border contact-card">
+                <div class="d-flex flex-column">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <p class="primary-text-color mb-1">Find Us</p>
+                </div>
+                <p class="contact-text">{{aboutDetail.trustAddress}}</p>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 text-center text-sm-left border contact-card">
+                <div class="d-flex flex-column">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <p class="primary-text-color mb-1">For Booking</p>
+                </div>
+                <p class="contact-text">{{aboutDetail.bookingNumber}}</p>
+                <small>(Om Bansal/Agrawal)<br>
+                (LPG Crematorium - Nandu )</small>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-sm-12 text-center text-sm-left border contact-card">
+                <div class="d-flex flex-column">
+                    <i class="far fa-envelope-open contact-icon"></i>
+                    <p class="primary-text-color mb-1">Email</p>
+                </div>
+                <p class="contact-text">{{aboutDetail.trustEmailId}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- contact us -->
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h5 class="text-capitalize mb-2 text_primary">Send Message</h5>
+            <p>Reach Us For Any Query</p>
+        </div>
+        <div class="row gap-4 mx-auto">
+            <div class="col-5">
+                <img src="assets\slide-img.png" alt="agrawal Dharamshala images" class="image">
+            </div>
+
+            <div class="col-6 px-4">
+                <form #facilityForm="ngForm" (ngSubmit)="OnSubmitFeedback(facilityForm.value)">
+                    <div class="row mb-4">
+                        <div class="col">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" id="name"  ngModel>
+                        </div>
+                        <div class="col">
+                            <label for="phone" class="form-label">Mobile No.</label>
+                            <input type="text" name="phone" class="form-control" id="phone" ngModel>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col">
+                          <label for="totalMember" class="form-label">No of Member</label>
+                          <input type="number" name="totalMember" class="form-control" id="totalMember" ngModel>
+                        </div>
+                        <div class="col">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" ngModel>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col">
+                            <label for="roomType" class="form-label">Room Type </label>
+                           <select  name="roomType" class="form-control" id="roomType" ngModel>
+                            <option value="">Non AC Room</option>
+                            <option value="">AC Room</option>
+                           </select>
+                        </div>
+                        <div class="col">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="datetime-local" name="date" class="form-control" id="date" ngModel>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <label for="comment" class="form-label">commet</label>
+                            <textarea name="comment" id="comment" cols="20" rows="5" class="form-control" ngModel></textarea>
+                    </div>
+                    </div>
+                    
+                    <button type="submit" class="btn submit-btn btn-primary float-end">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container my-5" >
     <div class="row d-flex justify-content-center">
         <div class="col-8">
             <h4>Contact <span class="text-danger">Us</span></h4><br>
@@ -133,5 +241,5 @@
 
   
     
-</div>
-<app-footer></app-footer>
+</div> -->
+<!-- <app-footer></app-footer> -->

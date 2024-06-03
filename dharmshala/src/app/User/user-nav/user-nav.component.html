@@ -1,17 +1,33 @@
-<div class="row nav-row">
-    <div class="container d-flex justify-content-center">
-        <div class="row">
-            <ul>
-                <li><a routerLink="/">Home</a></li>
-                <li><a routerLink="/trust">Trust</a></li>
-                <li><a routerLink="/facilities">Facilities</a></li>
-                <li><a routerLink="/other-projects">Other Projects</a></li>
-                <li><a routerLink="/photo-gallery">Photo Gallery</a></li>
-                <li><a routerLink="/contact-us">Contact Us</a></li>
-                <li style="float:right; margin-left: auto;"><a class="active" routerLink="/youths-marriageable">Youths Marriageable Age Cell</a></li>
-            </ul>
-        </div>
-        
+<nav class="navbar navbar-expand-lg navbar-light px-4">
+    <div class="container-fluid">
+      <a class="d-inline-block mb-0 name-logo" href="/">Agrawal Dharamshala</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-3 align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/trust" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Trust</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/facilities" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Facilities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/other-projects" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Other Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/photo-gallery" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Photo Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="/youths-marriageable">Youths Marriageable Age Cell</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    
-</div>
+  </nav>
