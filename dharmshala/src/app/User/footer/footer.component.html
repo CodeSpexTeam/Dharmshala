@@ -1,36 +1,63 @@
-<div class="row d-flex justify-content-center py-3" style="background-color: #232323;  color: white;">
-    <div class="col">
-      <h3>Facilites</h3>
-      <ul *ngFor="let item of topFourFacility">
-        <li>{{item}}</li>
-      </ul>
+<!-- Footer Start -->
+<div class="container-fluid primary-background text-white py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+  <div class="row pt-5">
+    <div class="col-lg-8 col-md-12">
+      <div class="row">
+        <div class="col-md-6 mb-5 pl-3">
+          <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Facilites</h5>
+          <ul *ngFor="let item of topFourFacility">
+            <li>
+              <a class="text-white mb-2 text-capitalize" href="/facilities">{{ item }}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6 mb-5">
+          <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Projects</h5>
+          <div class="d-flex flex-column justify-content-start">
+            <ul *ngFor="let item of topFourProject">
+              <li>
+                <a class="text-white mb-2 text-capitalize" href="/other-projects">{{ item }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <h3>Project</h3>
-      <ul *ngFor="let item of topFourProject">
-          <li>{{item}}</li>
-      </ul>
+    <div class="col-lg-4 col-md-12 mb-5">
+      <div class="row">
+          <h5 class="text-white font-weight-bold text-uppercase mb-4" style="letter-spacing: 5px;">Get In Touch</h5>
+          <p><i class="fa fa-map-marker-alt me-2"></i>{{ aboutDetail.trustAddress }}</p>
+          <p><i class="fa fa-phone-alt me-2"></i>{{ aboutDetail.trustPhoneNumber }}</p>
+          <p><i class="fa fa-envelope me-2"></i>{{ aboutDetail.trustEmailId }}</p>
+          <div class="d-flex justify-content-start mt-4">
+            <a class="btn btn-outline-light btn-square me-2"
+              href="https://www.facebook.com/agrwaldharmshala"><i class="fa-brands fa-facebook"></i></a>
+            <a class="btn btn-outline-light btn-square me-2"
+              href="https://twitter.com/agrwal4"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-outline-light btn-square"
+              href="https://plus.google.com/b/108491354722117751611/108491354722117751611/posts?hl=en"><i class="fab fa-google"></i></a>
+          </div>
+      </div>
     </div>
-    <div class="col">
-      <h3>Follow Us</h3>
-      <ul>
-          <li>Facebook</li>
-          <li>Twitter</li>
-          <li>Google+</li>
-          <li>Email</li>
-          <li>Print</li>
-      </ul>
+  </div>
+</div>
+<div class="container-fluid primary-background text-white py-4 px-sm-3 px-md-5 footer-border">
+  <div class="row copyright-div">
+    <div class="col-lg-6 mb-3 mb-md-0">
+      <p class="m-0 text-white text-capitalize">
+        &copy; <a href="/" class="text-white">agrawal dharamshala</a>, udaipur
+      </p>
     </div>
-    <div class="col">
-      <h3>Contact Us</h3>
-      <ul >
-          <li>Email: {{aboutDetail.trustEmailId}}</li>
-          <li>Phone: {{aboutDetail.trustPhoneNumber}}</li>
-          <li>Adress: {{aboutDetail.trustAddress}}</li>
-          
+    <div class="col-lg-6">
+      <ul class="nav d-inline-flex float-lg-end">
+        <li class="nav-item">
+          <a class="nav-link text-white py-0" href="/trust">Trust</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white py-0" href="/contact-us">Contact</a>
+        </li>
       </ul>
     </div>
   </div>
-<div class="row text-center py-3" style="background-color: #333; color: white;">
-    <span>© Copyright 2013|AGRAWAL DHARMSHALA, UDAIPUR</span>
 </div>
+<!-- Footer End -->

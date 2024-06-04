@@ -1,0 +1,29 @@
+.Logo_Bg {
+    /* background: linear-gradient(60deg, #EE4E4E, #B51315); */
+    background: linear-gradient(130deg, #EE4E4E 0%, #B51315 100%);
+    padding: 2rem;
+    margin: 1rem 3rem;
+    border-radius: 50px;
+}
+
+
+
+.query-card {
+    background-color: #fff3cd;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px 0px rgba(141, 11, 11, 0.56);
+}
+
+.logo-img {
+    max-width: 100%;
+    /* width: 100%; */
+}
+
+
+
+@media screen and (max-width) {
+    .logo-img-div {
+        padding-bottom: 2rem;
+    }
+}

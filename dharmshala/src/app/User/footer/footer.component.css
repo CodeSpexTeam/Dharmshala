@@ -1,0 +1,14 @@
+.footer-border {
+    border-top: 0.5px solid ;
+    border-color: #fff3cd ;
+}
+
+li a:hover {
+    text-decoration: underline !important;
+}
+
+@media screen and (max-width: 992px) {
+    .copyright-div {
+        text-align: center;
+    }
+}

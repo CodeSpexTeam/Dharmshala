@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj": {}
+    "C:\\Users\\immuk\\source\\repos\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj": {}
   },
   "projects": {
-    "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj": {
+    "C:\\Users\\immuk\\source\\repos\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj",
+        "projectUniqueName": "C:\\Users\\immuk\\source\\repos\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj",
         "projectName": "dharmshalaAPI",
-        "projectPath": "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj",
-        "packagesPath": "C:\\Users\\nitro\\.nuget\\packages\\",
-        "outputPath": "D:\\CodespexTeam Project\\Dharmshala\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\obj\\",
+        "projectPath": "C:\\Users\\immuk\\source\\repos\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\dharmshalaAPI.csproj",
+        "packagesPath": "C:\\Users\\immuk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\immuk\\source\\repos\\Dharmshala\\dharmshalaAPI\\dharmshalaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nitro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\immuk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -91,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

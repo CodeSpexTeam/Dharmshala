@@ -1,3 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
 
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    font-family: "Poppins", sans-serif !important;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+ul {
+    list-style-type: none !important;
+    padding: 0 !important;
+}
+
+p {
+    margin: 0 !important;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+textarea {
+    resize: none !important;
+}
+
+.btn-primary {
+    background: linear-gradient(130deg, #EE4E4E 0%, #B51315 100%) !important;
+    border: 0 !important;
+    transition: all 2s ease-in-out !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(332deg, #EE4E4E 0%, #B51315 100%) !important;
+}
+
+.text_primary {
+    color: #dc3545 !important;
+}
+
+.primary-background {
+    background-color: #dc3545;
+}
+
+.secondary-bg {
+    background-color: #fff3cd;
+}
+
+.text_secondry {
+    color: #A9A9A9;
+}
+
+.heading-div {
+    height: 150px;
+    font-family: "Domine", serif !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 2rem;
+
+}
+
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid #B51315 !important;
+}
+
+.mb_5 {
+    margin-bottom: 5rem;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-xs {
+    font-size: 12px;
+}

@@ -1,8 +1,56 @@
-<div class="row">
-  <div class="img text-center py-3" style="background-color: #B51B1B;">
-  <img src="assets\logo.png" alt="LOGO">
-  <!-- <h1>AGRAWAL DHARMSHALA</h1>
-  <h1>(UDAIPUR)</h1> -->
-</div>
+<div class="Logo_Bg">
+  <div class="container p-2 ">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6 col-lg-7 img logo-img-div text-center">
+          <img src="assets\logo.png" alt="LOGO" class="img-fluid">
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 px-5">
+        <div class="query-card">
+          <h3 class="mb-4 text-color">Query Form</h3>
+          <form #facilityForm="ngForm" (ngSubmit)="OnSubmitFeedback(facilityForm.value)">
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" name="name" class="form-control form-control-sm" id="name" ngModel
+                  placeholder="Name">
+              </div>
 
+              <div class="col">
+                <input type="text" name="phone" class="form-control form-control-sm" id="phone" ngModel
+                  placeholder="Mobile No.">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input type="number" name="totalMember" class="form-control form-control-sm" id="totalMember" ngModel
+                  placeholder="No of Persons">
+              </div>
+              <div class="col">
+                <input type="email" name="email" class="form-control form-control-sm" id="email" ngModel
+                  placeholder="Email">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-6">
+                <select name="roomType" class="form-control form-control-sm w-full" id="roomType" ngModel>
+                  <option value="" disabled>-- Select Room Type --</option>
+                  <option value="">Non AC Room</option>
+                  <option value="">AC Room</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <input type="datetime-local" name="date" class="form-control form-control-sm" id="date" ngModel>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <textarea class="form-control" placeholder="Leave a comment here" id="comment" name="comment"
+                  ngModel></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn submit-btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

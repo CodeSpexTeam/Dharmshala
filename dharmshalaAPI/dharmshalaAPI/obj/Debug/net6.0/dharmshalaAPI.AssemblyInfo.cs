@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dharmshalaAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48c835761f3a1697239ebd89018f33f16bca27ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("dharmshalaAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dharmshalaAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
