@@ -22,4 +22,27 @@ small {
 .image {
     max-width: 100%;
     width: 100%;
+    border-radius: 10px;
+}
+
+
+label {
+    color: #B51315;
+    font-weight: 500;
+}
+
+.large-map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 1000px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.post-it-icon {
+    max-width: 100%;
+    width: 30px;
+    height: 30px;
 }

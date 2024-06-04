@@ -1,92 +1,203 @@
 <!-- <app-user-nav></app-user-nav> -->
 
+<div class="primary-background heading-div text-white mb-4">
+  <h2>Shri Agrasen Sahayata Kosh Trust</h2>
+</div>
+
+<!-- main Objectives -->
+<div class="container-fluid pt-5 mb_5">
+  <div class="container align-items-center">
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="text-capitalize mb-2 text_primary">Main Objectives</h4>
+        <div class="d-flex flex-row">
+          <i class="fa-solid fa-chevron-right text_primary me-2"></i>
+          <p>To provide scholarship and other help to the needy students of society.</p>
+        </div>
+        <div class="d-flex flex-row">
+          <i class="fa-solid fa-chevron-right text_primary me-2"></i>
+          <p>To provide financial help to the widows and financially weak persons, especially to women & to help the deceased / ill persons.</p>
+        </div>
+        <div class="d-flex flex-row">
+          <i class="fa-solid fa-chevron-right text_primary me-2"></i>
+          <p>To construct / establish Dharmshalas, Hospitals, Maternity Homes, Nursing Homes, Student Hostels, Old-Age Homes etc, and manage them to run successfully without any profit motive.</p>
+        </div>
+        <div class="d-flex flex-row">
+          <i class="fa-solid fa-chevron-right text_primary me-2"></i>
+          <p>In order to educate the weaker sections of society trust can establish / construct schools, collages, library, reading room etc. and manage them to run successfully without any profit motive.</p>
+        </div>
+        <div class="d-flex flex-row">
+          <i class="fa-solid fa-chevron-right text_primary me-2"></i>
+          <p>To organize constructive activities for upliftment of the society.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-5">
+          <img src="assets\slide-img.png" alt="agrawal Dharamshala images" class="image">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Trust details -->
+<div class="container-fluid pt-5 mb_5">
+  <div class="container align-items-center">
+    <div class="text-center mb-5">
+      <h4 class="text-capitalize mb-2 text_primary">Other Details</h4>
+    </div>
+    <div class="row gap-3 justify-content-center">
+      <div class="col-md-6 text-left text-sm-left border contact-card p-4">
+        <div class="d-flex flex-column mb-2">
+          <i class="fa-solid fa-certificate contact-icon"></i>
+          <h4 class="text_primary">Trust Registration</h4>
+        </div>
+        <div class="contact-text">
+          <p class="text-secondary text-sm">The trust is registered in 'Devsthan Vibhag' of Govt. of Rajasthan.</p>
+          <p class="text_primary text-sm">
+            Registration No.: Devsthan Vibhag : 05 / Udaipur / Dev / 99 dt. 24-9-99
+          </p>
+        </div>
+      </div>
+      <div class="col-md-5 text-left text-sm-left border contact-card p-4">
+        <div class="d-flex flex-column mb-2">
+          <i class="fa-solid fa-hand-holding-dollar  contact-icon"></i>
+          <h5 class="text_primary">Donations</h5>
+        </div>
+        <div class="contact-text">
+          <p class="text-secondary text-sm">The Income Tax Department has given the benefit of 809 to the persan
+            donating in this Trust.</p>
+          <p class="text_primary text-sm">
+            (Refes Income Tax Commissior Order No. A.A. / Udaipur / 2011-12 / 3188 dt. 25 / 10 / 11)
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- management commettie -->
+<div class="container-fluid pt-5 mb_5">
+  <div class="container align-items-center">
+    <div class="text-center mb-5">
+      <h4 class="text-capitalize mb-2 text_primary">Management Committee</h4>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 text-left text-sm-left p-4 gap-3" *ngFor="let item of data;">
+        <div class="d-flex flex-column align-items-center">
+          <div class="member-img">
+            <i class="fa-solid fa-user-tie "></i>
+          </div>
+          <div class="member-info">
+            <h4>{{ item.name }}</h4>
+            <span>{{ item.memberType }}</span>
+            <p class="text-sm m-0">{{ item.phone }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row">
-   <app-logo></app-logo>
-   <div class="container py-3 d-flex justify-content-center">
+  <!-- <app-logo></app-logo> -->
+  <!-- <div class="container py-3 d-flex justify-content-center">
     <div id="carouselExampleIndicators" class="carousel slide shadow-lg rounded" style="width: 55%;">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
       </div>
-      <div class="carousel-inner" >
+      <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src={{galleryList[0].image}} class="d-block w-100" alt={{galleryList[0].image}} >
+          <img src={{ galleryList[0].image }} class="d-block w-100" alt={{ galleryList[0].image }}>
         </div>
         <div class="carousel-item" *ngFor="let item of galleryList">
-          <img src={{item.image}} class="d-block w-100" alt={{item.image}} >
+          <img src={{ item.image }} class="d-block w-100" alt={{ item.image }}>
         </div>
-       
+
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-  </div>
-  </div>
-    <div class="container my-5" >
-      <div class="row mx-5">
-        <h2 class="text-decoration-underline">
-          Shri Agrasen Sahayata Kosh Trust
-        </h2>
-      </div>
-  
-      <div class="row my-3 mx-5">
-        <h5 class="text-danger">Aims & Objectives</h5>
-        <p>
-          As  Per the Trust Deed the main objective of the trust is Social Service & Social welfare. In Order to attain this objective the Trust can start / undertake and execute different activities.
-        </p><br><br>
-        <h5 class="text-danger">The Main Objectives are:</h5>
-        <p>
-          <span class="text-danger">(a)</span> To provide scholarship and other help to the needy students of society.
-        </p>
-        <p>
-          <span class="text-danger">(b)</span> To provide financial help to the widows and financially weak persons, especially to women & to help the deceased / ill persons.
-        </p>
-        <p>
-          <span class="text-danger">(c)</span> To construct / establish Dharmshalas, Hospitals, Maternity Homes, Nursing  Homes, Student Hostels, Old-Age Homes etc,  and manage them to run       successfully without any profit motive.
-        </p>
-        <p>
-          <span class="text-danger">(d)</span> In order to educate the weaker sections of society trust can establish / construct schools, collages, library, reading room etc. and manage them to       run successfully without any profit motive.
-        </p>
-        <p>
-          <span class="text-danger">(e)</span> To organize constructive activities for upliftment of the society. <br><br>
-          The trust is registered in 'Devsthan Vibhag' of Govt. of Rajasthan.<br>
-          <span class="text-danger">Registration No.: Devsthan Vibhag : 05 / Udaipur / Dev / 99 dt. 24-9-99</span><br><br>
-          The Income Tax Department has given the benefit of 809 to the persan donating in this Trust.<br>
-          <span class="text-danger">(Refes Income Tax Commissior Order No. A.A. / Udaipur / 2011-12 / 3188 dt. 25 / 10 / 11)</span>
-        </p>
-      </div>
-  
-      <div class="row my-3 mx-5 shadow-lg rounded">
-        <h4 class="my-3">Management Committee</h4>
-        <div class="row d-flex justify-content-evenly">
-          <div class="col-3">
-            <ul class="list-unstyled" *ngFor="let item of data; let indexOfelement=index;">
-              <li class="text-danger">{{indexOfelement+1}}. {{item.memberType}}</li>
-            </ul>
-          </div>
-          <div class="col-3">
-            <ul class="list-unstyled" *ngFor="let item of data; let indexOfelement=index;">
-              <li>{{item.name}}</li>
-            </ul>
-          </div>
-          <div class="col-3">
-            <ul class="list-unstyled" *ngFor="let item of data; let indexOfelement=index;">
-              <li>{{item.phone}}</li>
-            </ul>
-          </div>
-        </div>
-       
-      </div>
     </div>
-  
-  
+  </div> -->
+  <div class="container my-5">
+    <div class="row mx-5">
+      <h2 class="text-decoration-underline">
+        Shri Agrasen Sahayata Kosh Trust
+      </h2>
+    </div>
+
+    <div class="row my-3 mx-5">
+      <h5 class="text-danger">Aims & Objectives</h5>
+      <p>
+        As Per the Trust Deed the main objective of the trust is Social Service & Social welfare. In Order to attain
+        this objective the Trust can start / undertake and execute different activities.
+      </p><br><br>
+      <h5 class="text-danger">The Main Objectives are:</h5>
+      <p>
+        <span class="text-danger">(a)</span> To provide scholarship and other help to the needy students of society.
+      </p>
+      <p>
+        <span class="text-danger">(b)</span> To provide financial help to the widows and financially weak persons,
+        especially to women & to help the deceased / ill persons.
+      </p>
+      <p>
+        <span class="text-danger">(c)</span> To construct / establish Dharmshalas, Hospitals, Maternity Homes, Nursing
+        Homes, Student Hostels, Old-Age Homes etc, and manage them to run successfully without any profit motive.
+      </p>
+      <p>
+        <span class="text-danger">(d)</span> In order to educate the weaker sections of society trust can establish /
+        construct schools, collages, library, reading room etc. and manage them to run successfully without any profit
+        motive.
+      </p>
+      <p>
+        <span class="text-danger">(e)</span> To organize constructive activities for upliftment of the society. <br><br>
+        The trust is registered in 'Devsthan Vibhag' of Govt. of Rajasthan.<br>
+        <span class="text-danger">Registration No.: Devsthan Vibhag : 05 / Udaipur / Dev / 99 dt. 24-9-99</span><br><br>
+        The Income Tax Department has given the benefit of 809 to the persan donating in this Trust.<br>
+        <span class="text-danger">(Refes Income Tax Commissior Order No. A.A. / Udaipur / 2011-12 / 3188 dt. 25 / 10 /
+          11)</span>
+      </p>
+    </div>
+
+    <div class="row my-3 mx-5 shadow-lg rounded">
+      <h4 class="my-3">Management Committee</h4>
+      <div class="row d-flex justify-content-evenly">
+        <div class="col-3">
+          <ul class="list-unstyled" *ngFor="let item of data; let indexOfelement=index;">
+            <li class="text-danger">{{ indexOfelement+1 }}. {{ item.memberType }}</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul class="list-unstyled" *ngFor="let item of data; let indexOfelement=index;">
+            <li>{{ item.name }}</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul class="list-unstyled" *ngFor="let item of data; let indexOfelement=index;">
+            <li>{{ item.phone }}</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
 </div>
 
 <!-- <app-footer></app-footer> -->

@@ -1,10 +1,10 @@
 <div class="Logo_Bg">
   <div class="container p-2 ">
     <div class="row align-items-center">
-      <div class="col-12 col-md-6 col-lg-8 img logo-img-div">
-        <img src="assets\logo.png" alt="LOGO" class="img-fluid">
+      <div class="col-12 col-md-6 col-lg-7 img logo-img-div text-center">
+          <img src="assets\logo.png" alt="LOGO" class="img-fluid">
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-5 px-5">
         <div class="query-card">
           <h3 class="mb-4 text-color">Query Form</h3>
           <form #facilityForm="ngForm" (ngSubmit)="OnSubmitFeedback(facilityForm.value)">
@@ -32,7 +32,7 @@
             <div class="row mb-3">
               <div class="col-6">
                 <select name="roomType" class="form-control form-control-sm w-full" id="roomType" ngModel>
-                  <option value="" disabled>Room Type</option>
+                  <option value="" disabled>-- Select Room Type --</option>
                   <option value="">Non AC Room</option>
                   <option value="">AC Room</option>
                 </select>

@@ -1,245 +1,206 @@
-<!-- <app-user-nav></app-user-nav> -->
-
 <div class="primary-background heading-div text-white mb-4">
-    <h2>Contact Us</h2>
+  <h2>Contact Us</h2>
 </div>
 <!-- reach us -->
-<div class="container-fluid py-5 ">
-    <div class="container align-items-center">
-        <div class="text-center mb-5">
-            <h5 class="text-capitalize mb-2 text_primary">Reach Us</h5>
-            <p>Reach Us For Any Query</p>
-        </div>
-        <div class="row gap-3 mx-auto">
-            <div class="col-xl-3 col-lg-3 col-md-6 text-center text-sm-left border contact-card">
-                <div class="d-flex flex-column">
-                    <i class="fas fa-phone contact-icon"></i>
-                    <p class="primary-text-color mb-1">For Enquiry</p>
-                </div>
-                <p class="contact-text">{{aboutDetail.trustPhoneNumber}}</p>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 text-center text-sm-left border contact-card">
-                <div class="d-flex flex-column">
-                    <i class="fas fa-map-marker-alt contact-icon"></i>
-                    <p class="primary-text-color mb-1">Find Us</p>
-                </div>
-                <p class="contact-text">{{aboutDetail.trustAddress}}</p>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 text-center text-sm-left border contact-card">
-                <div class="d-flex flex-column">
-                    <i class="fas fa-phone contact-icon"></i>
-                    <p class="primary-text-color mb-1">For Booking</p>
-                </div>
-                <p class="contact-text">{{aboutDetail.bookingNumber}}</p>
-                <small>(Om Bansal/Agrawal)<br>
-                (LPG Crematorium - Nandu )</small>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-sm-12 text-center text-sm-left border contact-card">
-                <div class="d-flex flex-column">
-                    <i class="far fa-envelope-open contact-icon"></i>
-                    <p class="primary-text-color mb-1">Email</p>
-                </div>
-                <p class="contact-text">{{aboutDetail.trustEmailId}}</p>
-            </div>
-        </div>
+<div class="container-fluid pt-5 mb_5">
+  <div class="container align-items-center">
+    <div class="text-center mb-5">
+      <h4 class="text-capitalize mb-2 text_primary">Quick Support</h4>
+      <p class="text_secondry fs-6">You can get all the contact information.</p>
     </div>
+    <div class="row gap-3 justify-content-center">
+      <div class="col-xl-3 col-lg-3 col-md-6 text-center text-sm-left border contact-card">
+        <div class="d-flex flex-column">
+          <i class="fas fa-phone contact-icon"></i>
+          <p class="primary-text-color mb-1">For Enquiry</p>
+        </div>
+        <p class="contact-text">{{ aboutDetail.trustPhoneNumber }}</p>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-6 text-center text-sm-left border contact-card">
+        <div class="d-flex flex-column">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+          <p class="primary-text-color mb-1">Find Us</p>
+        </div>
+        <p class="contact-text">{{ aboutDetail.trustAddress }}</p>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-6 text-center text-sm-left border contact-card">
+        <div class="d-flex flex-column">
+          <i class="fas fa-phone contact-icon"></i>
+          <p class="primary-text-color mb-1">For Booking</p>
+        </div>
+        <p class="contact-text">{{ aboutDetail.bookingNumber }}</p>
+        <small>(Om Bansal/Agrawal)<br>
+          (LPG Crematorium - Nandu )</small>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-sm-12 text-center text-sm-left border contact-card">
+        <div class="d-flex flex-column">
+          <i class="far fa-envelope-open contact-icon"></i>
+          <p class="primary-text-color mb-1">Email</p>
+        </div>
+        <p class="contact-text">{{ aboutDetail.trustEmailId }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- important message -->
+<div class="d-flex align-items-center justify-content-center mb_5">
+  <div class="card shadow p-5 w-50 border-0 d-flex flex-md-row gap-4 align-items-center">
+    <img src="../assets/post-it.png" alt="post-it import note" class="post-it-icon">
+    <div>
+      <p class="fw-bold text_primary">Important Note: </p>
+      <p>
+        We do not have any other website or agency to book the rooms. Any bookings made by other than OM Bansal will be
+        not volid and we will not be laible for it.
+      </p>
+    </div>
+  </div>
 </div>
 
 <!-- contact us -->
-<div class="container-fluid py-5 ">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h5 class="text-capitalize mb-2 text_primary">Send Message</h5>
-            <p>Reach Us For Any Query</p>
-        </div>
-        <div class="row gap-4 mx-auto">
-            <div class="col-5">
-                <img src="assets\slide-img.png" alt="agrawal Dharamshala images" class="image">
-            </div>
-
-            <div class="col-6 px-4">
-                <form #facilityForm="ngForm" (ngSubmit)="OnSubmitFeedback(facilityForm.value)">
-                    <div class="row mb-4">
-                        <div class="col">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="name"  ngModel>
-                        </div>
-                        <div class="col">
-                            <label for="phone" class="form-label">Mobile No.</label>
-                            <input type="text" name="phone" class="form-control" id="phone" ngModel>
-                        </div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <div class="col">
-                          <label for="totalMember" class="form-label">No of Member</label>
-                          <input type="number" name="totalMember" class="form-control" id="totalMember" ngModel>
-                        </div>
-                        <div class="col">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="email" ngModel>
-                        </div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <div class="col">
-                            <label for="roomType" class="form-label">Room Type </label>
-                           <select  name="roomType" class="form-control" id="roomType" ngModel>
-                            <option value="">Non AC Room</option>
-                            <option value="">AC Room</option>
-                           </select>
-                        </div>
-                        <div class="col">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="datetime-local" name="date" class="form-control" id="date" ngModel>
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col">
-                            <label for="comment" class="form-label">commet</label>
-                            <textarea name="comment" id="comment" cols="20" rows="5" class="form-control" ngModel></textarea>
-                    </div>
-                    </div>
-                    
-                    <button type="submit" class="btn submit-btn btn-primary float-end">Submit</button>
-                </form>
-            </div>
-        </div>
+<div class="container-fluid py-5 secondary-bg mb_5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 class="text-capitalize mb-2 text_primary">Get in Touch</h4>
+      <p class="text_secondry">Leave us a message</p>
     </div>
+    <div class="row gap-5 mx-auto align-items-center">
+      <div class="col-md-5 col-12">
+        <div class="mb-5">
+          <img src="assets\slide-img.png" alt="agrawal Dharamshala images" class="image">
+        </div>
+
+        <div>
+          <h5 class="text-capitalize mb-2 text_primary">Distances from different places</h5>
+          <ul>
+            <li>
+              <span>Distance from Gulab Bagh Zoo</span>(1.8 km)
+            </li>
+            <li>
+              <span>Distance from Dudh Talai</span>(1.8 km)
+            </li>
+            <li>
+              <span>Distance from City Palace</span>(1.8 km)
+            </li>
+
+          </ul>
+        </div>
+
+        <div>
+            <i class="fas fa-map-marker-alt me-2 text_primary d-inline-block"></i>
+            <a class="text_primary" href="https://www.google.co.in/maps/place/Agrawal+Dharmshala/@24.559706,73.694964,14z/data=!4m9!3m8!1s0x3967ef9ca7d7f289:0xf44cc2fa1931c68!5m2!4m1!1i2!8m2!3d24.5595282!4d73.695009!16s%2Fg%2F1ptxjtsp2?hl=en&entry=ttu">View Larger Map</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-12 p-5 bg-white rounded shadow">
+        <form #facilityForm="ngForm" (ngSubmit)="OnSubmitFeedback(facilityForm.value)">
+          <div class="row mb-4">
+            <div class="col">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" name="name" class="form-control" id="name" ngModel>
+            </div>
+            <div class="col">
+              <label for="phone" class="form-label">Mobile No.</label>
+              <input type="text" name="phone" class="form-control" id="phone" ngModel>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col">
+              <label for="totalMember" class="form-label">No of Persons</label>
+              <input type="number" name="totalMember" class="form-control" id="totalMember" ngModel>
+            </div>
+            <div class="col">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" name="email" class="form-control" id="email" ngModel>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-6">
+              <label for="roomType" class="form-label">Room Type </label>
+              <select name="roomType" class="form-control w-full" id="roomType" ngModel>
+                <option value="" disabled>-- Select Room Type --</option>
+                <option value="">Non AC Room</option>
+                <option value="">AC Room</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label for="date" class="form-label">Date</label>
+              <input type="datetime-local" name="date" class="form-control" id="date" ngModel>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col">
+              <label for="comment" class="form-label">Message</label>
+              <textarea name="comment" id="comment" cols="20" rows="5" class="form-control" ngModel></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn submit-btn btn-primary float-end">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- <div class="container my-5" >
-    <div class="row d-flex justify-content-center">
-        <div class="col-8">
-            <h4>Contact <span class="text-danger">Us</span></h4><br>
-            
-            <div class="container">
-                <div class="row d-flex">
-                   <div class="col-4">
-                        <img src="assets\slide-img.png" alt="" width="200px" height="150px">
-                        <span><h5 class="text-danger">Email: </h5></span><span class="text-danger">{{aboutDetail.trustEmailId}}</span>
-                        <h5 class="text-danger">View Larger Map: </h5><span ><a href="" class="text-danger">Map</a></span>
-                    </div>
-                    <div class="col">
-                        <h5>Agrawal Dharmshala, Udaipur</h5>
-                        <ul>
-                            <li><span class="text-danger">Address : </span> {{aboutDetail.trustAddress}}</li>
-                            <li><span class="text-danger">Phone : </span>  {{aboutDetail.trustPhoneNumber}}</li>
-                            <li><span class="text-danger">For Booking : </span> Om Bansal / Agrawal - {{aboutDetail.bookingNumber}}</li>
-                            <li><span class="text-danger">Important Note: We do not have any other website or agency to book the rooms. Any bookings made by other than OM Bansal will be not volid and we will not be laible for it.</span> </li>
-                            <li><span class="text-danger">For LPG Crematorium Booking : </span>  Nandu - {{aboutDetail.bookingNumber}}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <h4 >How To Reach From :</h4>
-                <div class="row">
-                    <div class="col">
-                        <p class="text-danger">Airport</p>
-                        <p>(Distance from Udaipur Airport: 37.0 km)</p>
-                    </div>
-                    <div class="col">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d116116.77466346898!2d73.7101735552541!3d24.566781575958306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3967dce72c3bc507%3A0x1f9ed3f75e34d2b2!2sMaharana%20Pratap%20Airport%2C%20Udaipur%2C%20JV9R%2BX32%2C%20NH%2076%2C%20Dabok%2C%20Rajasthan%20313022!3m2!1d24.6198776!2d73.89014279999999!4m5!1s0x3967ef9ca7d7f289%3A0xf44cc2fa1931c68!2sAgrawal%20Dharmshala%2C%20Hiralal%20Agrawal%20Marg%2C%207A%2C%20Sector%2011%2C%20Hiran%20Magri%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.5595282!2d73.695009!5e0!3m2!1sen!2sin!4v1713184165734!5m2!1sen!2sin" width="80" height="80" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p class="text-danger">Railway Station</p>
-                        <p>(Distance from Udaipur Railway Station: 2.7 km)</p>
-                    </div>
-                    <div class="col">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d14514.715392753382!2d73.68614534126756!3d24.565757765530993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3967ef8142f6c249%3A0xd10cf3c0e23e140f!2sRailway%20Station%20Rd%2C%20Jawahar%20Nagar%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.568749399999998!2d73.6989017!4m5!1s0x3967ef9ca7d7f289%3A0xf44cc2fa1931c68!2sAgrawal%20Dharmshala%2C%20Hiralal%20Agrawal%20Marg%2C%207A%2C%20Sector%2011%2C%20Hiran%20Magri%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.5595282!2d73.695009!5e0!3m2!1sen!2sin!4v1713184322115!5m2!1sen!2sin" width="80" height="80" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p class="text-danger">Bus Stand</p>
-                        <p>(Distance from Udaipur Bus Stand: 3.3 km)</p>
-                    </div>
-                    <div class="col">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d14514.434633682255!2d73.68699699126886!3d24.56818216512787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3967e581d0a5a4df%3A0x5eab96a8517b1cb8!2sNagar%20Nigam%20City%20Bus%2C%20Roadways%20Bus%20Stand%20Udaipole%2C%20Central%20Area%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.57628!2d73.700941!4m5!1s0x3967ef9ca7d7f289%3A0xf44cc2fa1931c68!2sAgrawal%20Dharmshala%2C%20Hiralal%20Agrawal%20Marg%2C%207A%2C%20Sector%2011%2C%20Hiran%20Magri%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.5595282!2d73.695009!5e0!3m2!1sen!2sin!4v1713184393960!5m2!1sen!2sin" width="80" height="80" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="row">
-                <h4 >Other Distance :</h4>
-                <ul>
-                    <li>
-                        <span class="text-danger">Distance from Gulab Bagh Zoo</span>(1.8 km)
-                    </li>
-                    <li>
-                        <span class="text-danger">Distance from Dudh Talai</span>(1.8 km)
-                    </li>
-                    <li>
-                        <span class="text-danger">Distance from City Palace</span>(1.8 km)
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="row my-5">
-                <div class="col-6">
-                    <h4>Feedback</h4>
-                    <form #facilityForm="ngForm" (ngSubmit)="OnSubmitFeedback(facilityForm.value)">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="name"  ngModel>
-                        </div>
-        
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Mobile No.</label>
-                            <input type="text" name="phone" class="form-control" id="phone" ngModel>
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="totalMember" class="form-label">No of Member</label>
-                          <input type="number" name="totalMember" class="form-control" id="totalMember" ngModel>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="email" ngModel>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="roomType" class="form-label">Room Type </label>
-                           <select  name="roomType" class="form-control" id="roomType" ngModel>
-                            <option value="">Non AC Room</option>
-                            <option value="">AC Room</option>
-                           </select>
-                        </div>
-        
-                        <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="datetime-local" name="date" class="form-control" id="date" ngModel>
-                        </div>
-                        <div class="mb-3">
-                            <label for="comment" class="form-label">commet</label>
-                            <textarea name="comment" id="comment" cols="20" rows="5" class="form-control" ngModel></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn submit-btn btn-primary">Submit</button>
-                    </form>
-                </div>
-                <div class="col-6">
-                    <h4>Map</h4>
-                    <div>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.859032466161!2d73.69243407458963!3d24.559533057234457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967ef9ca7d7f289%3A0xf44cc2fa1931c68!2sAgrawal%20Dharmshala!5e0!3m2!1sen!2sin!4v1713183809121!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-
-                </div>
-            </div>
-           
- 
-        </div>
+<!-- reach from  -->
+<div class="container-fluid mb_5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 class="text-capitalize mb-2 text_primary">Reach Us From</h4>
     </div>
+    <div class="row gap-3">
+      <div class=" col card shadow p-5 border-0 d-flex flex-md-row gap-4 align-items-center">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d116116.77466346898!2d73.7101735552541!3d24.566781575958306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3967dce72c3bc507%3A0x1f9ed3f75e34d2b2!2sMaharana%20Pratap%20Airport%2C%20Udaipur%2C%20JV9R%2BX32%2C%20NH%2076%2C%20Dabok%2C%20Rajasthan%20313022!3m2!1d24.6198776!2d73.89014279999999!4m5!1s0x3967ef9ca7d7f289%3A0xf44cc2fa1931c68!2sAgrawal%20Dharmshala%2C%20Hiralal%20Agrawal%20Marg%2C%207A%2C%20Sector%2011%2C%20Hiran%20Magri%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.5595282!2d73.695009!5e0!3m2!1sen!2sin!4v1713184165734!5m2!1sen!2sin"
+          width="80" height="80" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <p class="fw-bold text_primary">Airport </p>
+          <p>(Distance from Udaipur Airport: 37.0 km)</p>
+        </div>
+      </div>
+      <div class=" col card shadow p-5 border-0 d-flex flex-md-row gap-4 align-items-center">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d14514.715392753382!2d73.68614534126756!3d24.565757765530993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3967ef8142f6c249%3A0xd10cf3c0e23e140f!2sRailway%20Station%20Rd%2C%20Jawahar%20Nagar%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.568749399999998!2d73.6989017!4m5!1s0x3967ef9ca7d7f289%3A0xf44cc2fa1931c68!2sAgrawal%20Dharmshala%2C%20Hiralal%20Agrawal%20Marg%2C%207A%2C%20Sector%2011%2C%20Hiran%20Magri%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.5595282!2d73.695009!5e0!3m2!1sen!2sin!4v1713184322115!5m2!1sen!2sin"
+          width="80" height="80" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <p class="fw-bold text_primary">Railway Station </p>
+          <p>(Distance from Udaipur Railway Station: 2.7 km)</p>
+        </div>
+      </div>
+      <div class=" col card shadow p-5 border-0 d-flex flex-md-row gap-4 align-items-center">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d14514.434633682255!2d73.68699699126886!3d24.56818216512787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3967e581d0a5a4df%3A0x5eab96a8517b1cb8!2sNagar%20Nigam%20City%20Bus%2C%20Roadways%20Bus%20Stand%20Udaipole%2C%20Central%20Area%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.57628!2d73.700941!4m5!1s0x3967ef9ca7d7f289%3A0xf44cc2fa1931c68!2sAgrawal%20Dharmshala%2C%20Hiralal%20Agrawal%20Marg%2C%207A%2C%20Sector%2011%2C%20Hiran%20Magri%2C%20Udaipur%2C%20Rajasthan%20313001!3m2!1d24.5595282!2d73.695009!5e0!3m2!1sen!2sin!4v1713184393960!5m2!1sen!2sin"
+          width="80" height="80" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <p class="fw-bold text_primary">Bus Stand </p>
+          <p>(Distance from Udaipur Bus Stand: 3.3 km)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  
-    
-</div> -->
-<!-- <app-footer></app-footer> -->
+
+<!-- site map -->
+<div class="container-fluid">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 class="text-capitalize mb-2 text_primary">Find Us on Google Maps</h4>
+      <p class="text_secondry">Leave us a message</p>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <iframe class="large-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.859032466161!2d73.69243407458963!3d24.559533057234457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967ef9ca7d7f289%3A0xf44cc2fa1931c68!2sAgrawal%20Dharmshala!5e0!3m2!1sen!2sin!4v1713183809121!5m2!1sen!2sin"
+          height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
