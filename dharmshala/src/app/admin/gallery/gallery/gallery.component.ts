@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { GalleryserviceService } from '../../admin service/galleryservice/galleryservice.service';
-import { NgToastService } from 'ng-angular-popup';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-gallery',
@@ -9,7 +10,7 @@ import { NgToastService } from 'ng-angular-popup';
 })
 export class GalleryComponent {
 
-  constructor(private galleryService:GalleryserviceService, private toast:NgToastService){}
+  constructor(private galleryService:GalleryserviceService, private toastr: ToastrService){}
   
   galleryList:any[]=[];
   galleryDetails:any={};
@@ -38,9 +39,9 @@ export class GalleryComponent {
       window.location.reload();
       },
       (error)=>{
-        this.toast.error({detail:'Error Message', summary:error.message,duration:5000});
+        this.toastr.error(error.message,'Error Message');
       }
-      );
+    )
   }
 
   getGalleryRecord(id:number){
@@ -73,10 +74,10 @@ export class GalleryComponent {
       this.galleryService.updateGallery(this.galleryDetails).subscribe((res:any)=>{
         this.closeModal();
         this.getAllGalleryList();
-        this.toast.success({detail:'Success Message', summary:res.message, duration:5000});
+        this.toastr.success(res.message,'Success Message');
       },
       (error)=>{
-        this.toast.error({detail:'Error Message', summary:error.messagee, duration:5000});
+        this.toastr.error( error.message,'Error Message');
       }
     )
   }
@@ -86,7 +87,7 @@ export class GalleryComponent {
       this.galleryDetails = res;
     },
     (error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message,duration:5000});
+      this.toastr.error(error.message,'Error Message');
     }
     )
   }

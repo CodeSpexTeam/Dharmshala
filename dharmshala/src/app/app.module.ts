@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgToastModule } from 'ng-angular-popup';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +34,8 @@ import { LogoComponent } from './User/logo/logo.component';
 import { YouthsMarriageableComponent } from './User/youths-marriageable/youths-marriageable.component';
 import { FeedbackComponent } from './admin/feedback/feedback.component';
 import { ImagemodalComponent } from './admin/imagemodal/imagemodal.component';
+import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -73,9 +74,9 @@ import { ImagemodalComponent } from './admin/imagemodal/imagemodal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgToastModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    BrowserAnimationsModule ,
+    ToastrModule.forRoot()
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

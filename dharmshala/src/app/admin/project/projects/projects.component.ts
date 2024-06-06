@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FacilityserviceService } from '../../admin service/facilityservices/facilityservice.service';
 import { ProjectserviceService } from '../../admin service/projectservice/projectservice.service';
-import { NgToastService } from 'ng-angular-popup';
+import { ToastrService } from 'ngx-toastr';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProjectsComponent {
 
-  constructor(private projectService:ProjectserviceService, private toast:NgToastService, private router:Router){}
+  constructor(private projectService:ProjectserviceService, private router:Router, private toastr: ToastrService){}
 
   ProjectsList:any[]=[]
   projectsDetails:any={};
@@ -41,7 +42,7 @@ export class ProjectsComponent {
       
     },
     (error)=>{
-      this.toast.success({detail:'Success Message',summary:error.error.message, duration:5000});
+      this.toastr.error(error.error.message,'Error Message');
     }
     )
   }
@@ -97,10 +98,10 @@ export class ProjectsComponent {
     this.projectService.updateProject(id,formData).subscribe((res:any)=>{
       this.closeModal();
       this.getAllProjects();
-      this.toast.success({detail:'Success Message', summary:res.message, duration:5000})
+      this.toastr.success(res.message,'Success Message');
     },
     (error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message, duration:5000})
+      this.toastr.error(error.message,'Error Message');
     }
     );
 
@@ -111,7 +112,7 @@ export class ProjectsComponent {
       this.projectsDetails = res;
     },
     (error)=>{
-      this.toast.error({detail:'Error Message',summary:error.message, duration:5000});
+      this.toastr.error(error.message,'Error Message');
     }
     );
   }

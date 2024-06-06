@@ -1,29 +1,51 @@
 <div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-6">
-            <h3>Add Facility</h3>
-            <form #facilityForm="ngForm" (ngSubmit)="OnSubmitFacility(facilityForm.value)" >
-                <div class="mb-3">
-                    <label for="facility" class="form-label">Facility</label>
-                    <input type="text" name="facilityName" class="form-control" id="facility" aria-describedby="emailHelp" ngModel>
-                </div>
-
-                <div class="mb-3">
-                    <label for="fees" class="form-label">Fees</label>
-                    <input type="text" name="fees" class="form-control" id="fees" aria-describedby="emailHelp" ngModel>
-                </div>
-                <div class="mb-3">
-                  <label for="image" class="form-label">Image</label>
-                  <input type="file" class="form-control" id="image" aria-describedby="emailHelp" (change)="handleFileInput($event)" >
-                </div>
-
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="5" class="form-control" ngModel></textarea>
-                </div>
-                
-                <button type="submit" class="btn submit-btn">Submit</button>
-            </form>
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <h3>Add Facility</h3>
+      <form [formGroup]="FacilityForm" (ngSubmit)="OnSubmitFacility()">
+        <div class="mb-3">
+          <label for="facility" class="form-label">Facility</label>
+          <!-- <input type="text" name="facilityName" class="form-control" id="facility" formControlName="facility"> -->
+          <select id="roomType" formControlName="facility" class="form-control">
+            <option value="">Select a facility type</option>
+            <option value="room">Room</option>
+            <option value="hall">Hall</option>
+            <option value="kitchen">Kitchen</option>
+          </select>
+          <div *ngIf="isSubmitted || (f['facility'].invalid && f['facility'].touched)" class="text-danger">
+            Please select a facility.
+          </div>
         </div>
+
+        <div class="mb-3">
+          <label for="fees" class="form-label">Amount</label>
+          <input type="text" name="fees" class="form-control" id="fees" formControlName="fees">
+          <div *ngIf="isSubmitted || (f['fees'].invalid && (f['fees'].dirty || f['fees'].touched))"
+            class="text-danger">
+            <div *ngIf="f['fees'].errors?.required">
+              Please add amount of the facility.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input type="file" class="form-control" id="image" (change)="handleFileInput($event)">
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="description" id="description" class="form-control"
+            formControlName="description"></textarea>
+            <div *ngIf="isSubmitted || (f['description'].invalid && (f['description'].dirty || f['description'].touched))"
+            class="text-danger">
+            <div *ngIf="f['description'].errors?.required">
+              Please add details regarding facility.
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn submit-btn">Submit</button>
+      </form>
     </div>
+  </div>
 </div>

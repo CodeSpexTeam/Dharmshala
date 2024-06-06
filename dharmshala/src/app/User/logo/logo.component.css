@@ -22,8 +22,16 @@
 
 
 
-@media screen and (max-width) {
+@media screen and (max-width: 560px) {
     .logo-img-div {
         padding-bottom: 2rem;
+    }
+    .Logo_Bg {
+        margin: 1rem;
+        padding: 1rem .5rem;
+    }
+
+    .query-card {
+        padding: 1rem;
     }
 }

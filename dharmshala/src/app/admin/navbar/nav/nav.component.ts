@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthserviceService } from '../../admin service/authservice/authservice.service';
-import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
 export class NavComponent {
 
   
-  constructor(private authService:AuthserviceService, private toast:NgToastService, private router: Router){}
+  constructor(private authService:AuthserviceService, private router: Router){}
 
   ngOnInit(): void {
    

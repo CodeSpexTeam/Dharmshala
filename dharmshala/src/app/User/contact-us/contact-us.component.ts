@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgToastService } from 'ng-angular-popup';
+import { ToastrService } from 'ngx-toastr';
 import { AboutService } from 'src/app/admin/admin service/aboutservice/about.service';
 import { AuthserviceService } from 'src/app/admin/admin service/authservice/authservice.service';
 import { FeedbackService } from 'src/app/admin/admin service/feedbackservice/feedback.service';
@@ -12,14 +12,13 @@ import { FeedbackService } from 'src/app/admin/admin service/feedbackservice/fee
 })
 export class ContactUsComponent {
   aboutDetail:any={};
-  constructor(private authService:AuthserviceService, private feedBackService:FeedbackService, private aboutService:AboutService, private router:Router, private toast:NgToastService){}
+  constructor(private authService:AuthserviceService, private feedBackService:FeedbackService, private aboutService:AboutService, private router:Router, private toastr: ToastrService){}
 
   ngOnInit(): void {
     
     if(this.authService.isLoggedIn()) {
       this.router.navigate(['/dashboard']);
-      this.toast.warning({detail:'Info Message', summary:'Please Logout First', duration:5000});
-
+      this.toastr.warning('Please Logout First','Info Message');
     }
 
     this.getAbout();

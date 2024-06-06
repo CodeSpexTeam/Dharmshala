@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SocialmediaserviceService } from '../../admin service/socialmediaservice/socialmediaservice.service';
-import { NgToastService } from 'ng-angular-popup';
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SocialmediaformComponent {
 
-  constructor(private socialMediaService:SocialmediaserviceService,private toast:NgToastService, private router:Router){}
+  constructor(private socialMediaService:SocialmediaserviceService, private router:Router, private toastr: ToastrService){}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -21,10 +21,10 @@ export class SocialmediaformComponent {
   onSubmitSocialMedia(data:any){
     this.socialMediaService.addSocialMedia(data).subscribe((res)=>{
       this.router.navigate(['/social-media']);
-      this.toast.success({detail:'Success Message', summary:'New Media has been added Successfuly!'});
+      this.toastr.success('New Media has been added Successfuly!','Success Message');
     },
     (error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message,duration:5000});
+      this.toastr.error(error.message,'Error Message');
     }
     )
   }

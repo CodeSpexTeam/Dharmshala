@@ -1,41 +1,73 @@
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-3"></div>
-        <!-- <img src="assets/logodharmshala.png" alt=""> -->
-    </div>
+<div class="container mt-5 d-flex align-items-center justify-content-center">
+  <div class="card w-50 border-0 shadow px-4 py-5">
     <div class="row">
-        <h1 class="text-center">Signin</h1>
+      <h1 class="text-center text_primary">Signin</h1>
     </div>
     <div class="row d-flex justify-content-center">
-      <div class="col-6">
-        <form #signinForm="ngForm" (ngSubmit)="onSignin(signinForm.value)">
-            <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
-              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" ngModel>
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" name="password"  id="password" class="form-control" id="password" ngModel>
-            </div>
-           
-
-            <div class="row">
-              <div class="col-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="col-12 px-5">
+        <form [formGroup]="signInForm" (ngSubmit)="onSignin()">
+          <div class="mb-3">
+            <label for="email" class="form-label text_primary">Email address</label>
+            <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <div *ngIf="isSubmitted || (f['email'].invalid && (f['email'].dirty || f['email'].touched))"
+              class="text-danger">
+              <div *ngIf="f['email'].errors?.required">
+                Email address is required.
               </div>
-              <!-- <div class="col" *ngIf="isSuperAdmin==false">
-                <a type="btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Create a SuperAdmin</a>
-              </div> -->
+              <div *ngIf="f['email'].errors?.email">
+                Email address is not valid.
+              </div>
+            </div>
           </div>
-            
+          <div class="mb-3">
+            <label for="password" class="form-label text_primary">Password</label>
+            <input type="password" formControlName="password" id="password" class="form-control">
+            <div *ngIf="isSubmitted || (f['password'].invalid && (f['password'].dirty || f['password'].touched))"
+              class="text-danger">
+              <div *ngIf="f['password'].errors?.required">
+                password address is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
         </form>
+        <!-- <form #signinForm="ngForm" (ngSubmit)="onSignin(signinForm.value)">
+              <div class="mb-3">
+                <label for="email" class="form-label text_primary">Email address</label>
+                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" ngModel>
+
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label text_primary">Password</label>
+                <input type="password" name="password"  id="password" class="form-control" id="password" ngModel>
+              </div>
+
+              <div *ngIf="errorMsg" class="bg-danger text-white mb-2 p-1">
+                <p>Email or Password should not be empty.</p>
+              </div>
+      
+              <div class="row">
+                <div class="col-3">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col" *ngIf="isSuperAdmin==false">
+                  <a type="btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Create a SuperAdmin</a>
+                </div>
+            </div>
+      
+          </form> -->
       </div>
     </div>
+  </div>
 
 
 
-     <!-- Modal
+  <!-- Modal
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -106,5 +138,5 @@
        </div>
     </div>
   </div> -->
-    
+
 </div>

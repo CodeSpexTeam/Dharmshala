@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FeedbackService } from '../admin service/feedbackservice/feedback.service';
-import { NgToastService } from 'ng-angular-popup';
+
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-feedback',
@@ -13,7 +14,7 @@ export class FeedbackComponent {
   feedbackList:any[]=[];
   feedback:any={};
 
-  constructor(private feedbackService:FeedbackService , private router:Router,private toast:NgToastService){
+  constructor(private feedbackService:FeedbackService , private router:Router, private toastr: ToastrService){
     this.getAllFeedback();
   }
 
@@ -30,7 +31,7 @@ export class FeedbackComponent {
       
     },
     (error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message,duration:5000})
+      this.toastr.error(error.message,'Error Message')
     }
   );
   }
@@ -40,7 +41,7 @@ export class FeedbackComponent {
       this.feedback = res;
     },
   (error)=>{
-    this.toast.error({detail:'Error Message', summary:error.message,duration:5000})
+    this.toastr.error(error.message,'Error Message')
   });
   }
 

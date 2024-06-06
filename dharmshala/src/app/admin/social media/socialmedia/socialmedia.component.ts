@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SocialmediaserviceService } from '../../admin service/socialmediaservice/socialmediaservice.service';
-import { NgToastService } from 'ng-angular-popup';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-socialmedia',
@@ -9,7 +10,7 @@ import { NgToastService } from 'ng-angular-popup';
 })
 export class SocialmediaComponent {
 
-  constructor(private socialMediaService:SocialmediaserviceService, private toast:NgToastService){}
+  constructor(private socialMediaService:SocialmediaserviceService, private toastr: ToastrService){}
   socialMediaList:any[]=[];
   sociaoMediaDetails:any={};
 
@@ -32,7 +33,7 @@ export class SocialmediaComponent {
     this.socialMediaService.deleteSocialMedia(id).subscribe((res)=>{
         window.location.reload();
     },(error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message, duration:5000});
+      this.toastr.error(error.message,'Error Message');
     });
   }
 
@@ -41,7 +42,7 @@ export class SocialmediaComponent {
       this.sociaoMediaDetails = res;
     },
     (error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message, duration:5000});
+      this.toastr.error(error.message,'Error Message');
     });
     
   }
@@ -70,10 +71,10 @@ export class SocialmediaComponent {
     this.socialMediaService.updateSocialMedia(this.sociaoMediaDetails).subscribe((res:any)=>{
       this.closeModal();
       this.getSocialMediaList();
-      this.toast.success({detail:'Success Message', summary:res.message, duration:5000});
+      this.toastr.success(res.message,'Success Message');
     },
     (error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message, duration:5000});
+      this.toastr.error(error.message,'Error Message');
     }
     );
   }

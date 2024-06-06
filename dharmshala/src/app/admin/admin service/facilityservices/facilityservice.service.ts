@@ -33,7 +33,7 @@ export class FacilityserviceService {
   }
 
   public updatedFacility(id:number,data:any){
-    debugger
+    
     return this.http.put(`${this.baseUrl}/Facilities/${id}`, data);
   }
 }

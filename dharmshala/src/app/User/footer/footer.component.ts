@@ -47,7 +47,7 @@ export class FooterComponent {
         this.topFourFacility = test;
       }
 
-      console.log(this.topFourFacility);
+      // console.log(this.topFourFacility);
       
     });
   }
@@ -74,7 +74,7 @@ export class FooterComponent {
         this.topFourProject = removedDuplicatedProjectName;
       }
 
-      console.log(this.topFourProject);
+      // console.log(this.topFourProject);
 
     })
       
@@ -84,7 +84,7 @@ export class FooterComponent {
   getAbout(){
     this.aboutService.getAboutDetail().subscribe((res:any)=>{
       this.aboutDetail = res[0];
-      console.log(this.aboutDetail)
+      // console.log(this.aboutDetail)
     })
   }
 

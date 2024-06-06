@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ProjectserviceService } from '../admin service/projectservice/projectservice.service';
-import { NgToastService } from 'ng-angular-popup';
+
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addprojects',
@@ -12,7 +13,7 @@ export class AddprojectsComponent {
 
   selectedFile: File | undefined;
 
-  constructor(private projectService:ProjectserviceService,private toast:NgToastService, private router:Router){}
+  constructor(private projectService:ProjectserviceService, private router:Router, private toastr: ToastrService){}
 
   handleFileInput(event:any){
     this.selectedFile = event.target.files[0];
@@ -33,10 +34,11 @@ export class AddprojectsComponent {
 
     this.projectService.addProject(formData).subscribe((res:any)=>{
       this.router.navigate(['/projects']);
-      this.toast.success({detail:'Success Message', summary:'Product has been added successfuly!', duration:5000});
+      this.toastr.success('Product has been added successfuly!', 'Success Message');
     },
     (error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message, duration:5000});
+      this.toastr.error(error.message, 'Error Message');
+
     }
     );
   }

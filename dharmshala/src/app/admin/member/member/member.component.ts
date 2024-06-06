@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { MemberserviceService } from '../../admin service/memberservice/memberservice.service';
 import { Members } from '../../iterface/_memberInterface';
 import { Router } from '@angular/router';
-import { NgToastService } from 'ng-angular-popup';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 
@@ -18,7 +19,7 @@ export class MemberComponent {
 
   selectedTeam:any;
 
-  constructor (private memberserive:MemberserviceService,private router:Router, private toast:NgToastService) {}
+  constructor (private memberserive:MemberserviceService,private router:Router, private toastr: ToastrService) {}
   
   data:Members[]=[];
   ngOnInit(): void {
@@ -42,7 +43,9 @@ export class MemberComponent {
       window.location.reload();
     },
     (error)=>{
-      this.toast.success({detail:'Success Message',summary:error.error.message, duration:5000})
+      this.toastr.error(error.error.message,'Error Message');
+
+
     }
     );
 
@@ -82,11 +85,13 @@ export class MemberComponent {
     this.memberserive.editMemberDetail(this.memberDetail).subscribe((res:any)=>{
       this.closeModal();
       this.displayMemberList();
-      this.toast.success({detail:'Success Message', summary:res.message, duration:5000});
+      this.toastr.success(res.message,'Success Message');
+
     },
     (error)=>{
       this.closeModal();
-      this.toast.error({detail:'Error Message', summary:error.message, duration:5000});
+      this.toastr.error(error.message,'Error Message');
+
     }
     );
   }

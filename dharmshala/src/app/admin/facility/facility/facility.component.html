@@ -20,7 +20,7 @@
                     <th scope="row">{{indexOfelement+1}}</th>
                     <td>{{item.facilityName}}</td>
                     <td>
-                        <img  src={{item.image}} alt="Image" (click)="onImageClick(item.image)" style="height: 50px; width: 60px;" >
+                        <img  [src]="'assets/UploadedImages/' + item.image" alt="Image" (click)="onImageClick(item.image)" style="height: 50px; width: 60px;" >
                     </td>
                     <td>
                         <div style="width: 200px; max-height: 100px; overflow: hidden;">

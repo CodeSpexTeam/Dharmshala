@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { admin,adminCreateAccount } from '../../iterface/_memberInterface';
 import { MemberserviceService } from '../../admin service/memberservice/memberservice.service';
-import { NgToastService } from 'ng-angular-popup';
+
 import { AuthserviceService } from '../../admin service/authservice/authservice.service';
+import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -48,7 +49,7 @@ export class SignupComponent {
 
 
 
-  constructor(private memberserive:MemberserviceService, private toast:NgToastService, private authService:AuthserviceService){}
+  constructor(private memberserive:MemberserviceService, private authService:AuthserviceService, private toastr: ToastrService){}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -73,7 +74,7 @@ export class SignupComponent {
     },
     (error)=>{
       debugger
-      this.toast.success({detail:'Success Message',summary:error.error.message, duration:5000})
+      this.toastr.error(error.message,'Error Message');
     }
     );
 
@@ -103,7 +104,7 @@ export class SignupComponent {
         },
         (error)=>{
           this.closeModal();
-          this.toast.error({detail:'Error Message', summary:error.error.message, duration:5000});
+          this.toastr.error(error.error.message,'Error Message');
         }
       );
 

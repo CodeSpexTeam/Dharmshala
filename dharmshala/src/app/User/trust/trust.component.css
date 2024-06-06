@@ -14,11 +14,19 @@
   height: 210px;
 }
 
-
+.member-img {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
 
 .member-img i {
     font-size: 78px;
-    color: #dc3545;
+    /* color: #dc3545; */
 }
 .member-info {
   margin-top: 30px;

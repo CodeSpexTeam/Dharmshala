@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NgToastService } from 'ng-angular-popup';
 import { AboutService } from '../../admin service/aboutservice/about.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-about',
@@ -22,7 +22,7 @@ export class AboutComponent {
    
   });
 
-  constructor( private  aboutService:AboutService,private toast:NgToastService){}
+  constructor( private  aboutService:AboutService, private toastr: ToastrService){}
 
   ngOnInit(): void {
     this.getAbout();
@@ -61,10 +61,10 @@ export class AboutComponent {
     console.log(this.aboutDetail);
 
     this.aboutService.updateAboutDetail(this.aboutDetail.id, this.aboutDetail).subscribe((res:any)=>{
-      this.toast.success({detail:'Success Message', summary:res.message, duration:5000})
+      this.toastr.success(res.message, 'Success Message');
     },
     (error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message, duration:5000})
+      this.toastr.error(error.message, 'Error Message');
     }
     );
 

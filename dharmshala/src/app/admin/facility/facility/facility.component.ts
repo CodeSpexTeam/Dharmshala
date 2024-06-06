@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FacilityserviceService } from '../../admin service/facilityservices/facilityservice.service';
-import { NgToastService } from 'ng-angular-popup';
+
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-facility',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class FacilityComponent {
 
-  constructor(private facilityService:FacilityserviceService, private toast:NgToastService, private router:Router){};
+  constructor(private facilityService:FacilityserviceService, private router:Router, private toastr: ToastrService){};
 
   facilityDetail:any[]=[];
   facilityDetails:any={}
@@ -40,7 +41,8 @@ export class FacilityComponent {
       window.location.reload();
     },
     (error)=>{
-      this.toast.error({detail:'Error Message',summary:error.message, duration:5000});
+      this.toastr.error(error.message,'Error Message');
+
     }
     );
   }
@@ -99,10 +101,11 @@ export class FacilityComponent {
     this.facilityService.updatedFacility(id,formData).subscribe((res:any)=>{
       this.closeModal();
       this.getAllFacility();
-      this.toast.success({detail:'Success Message', summary:res.message, duration:5000})
+      this.toastr.success(res.message,'Success Message');
     },
     (error)=>{
-      this.toast.error({detail:'Error Message', summary:error.message, duration:5000})
+      this.toastr.error(error.message,'Error Message');
+
     }
     );
 
@@ -114,7 +117,7 @@ export class FacilityComponent {
       this.facilityDetails = res;
     },
     (error)=>{
-      this.toast.error({detail:'Error Message',summary:error.message, duration:5000});
+      this.toastr.error(error.message,'Error Message');
     }
     );
     // this.removeImageBtn = true;
