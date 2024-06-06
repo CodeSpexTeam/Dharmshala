@@ -3,6 +3,7 @@ import { ProjectserviceService } from '../admin service/projectservice/projectse
 
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-addprojects',
@@ -11,25 +12,43 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddprojectsComponent {
 
+  projectForm: FormGroup;
+  isSubmitted: boolean = false;
   selectedFile: File | undefined;
+  ImageError: string= "";
 
-  constructor(private projectService:ProjectserviceService, private router:Router, private toastr: ToastrService){}
+  constructor(private projectService:ProjectserviceService, private router:Router, private toastr: ToastrService, private fb: FormBuilder){}
+
+  ngOnInit(): void {
+    this.projectForm = this.fb.group({
+      title: ['', [Validators.required]],
+      description: ['', [Validators.required]]
+    })
+  }
+
+  get f() {
+    return this.projectForm.controls;
+  }
 
   handleFileInput(event:any){
     this.selectedFile = event.target.files[0];
   }
 
 
-  OnSubmitProjects(data:any){
+  OnSubmitProjects(){
 
+    if(this.projectForm.invalid) {
+      this.isSubmitted = true;
+      return;
+    }
     if (!this.selectedFile) {
-      console.error('Please select a profile image.');
+      this.toastr.error('Please select a profile image.', 'Error Message');
       return;
     }
 
     const formData = new FormData();
-      formData.append('title', data.title);
-      formData.append('description',data.description);
+      formData.append('title', this.projectForm.get('title')?.value);
+      formData.append('description',this.projectForm.get('description')?.value);
       formData.append('imageName',this.selectedFile);
 
     this.projectService.addProject(formData).subscribe((res:any)=>{

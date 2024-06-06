@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthserviceService } from 'src/app/admin/admin service/authservice/authservice.service';
@@ -16,6 +16,7 @@ export class FacilitiesComponent {
   isClicked:boolean = false;
   clickedImageSrc:string|undefined;
   constructor(private authService:AuthserviceService, private facilityService:FacilityserviceService, private router:Router, private toastr: ToastrService){}
+
 
   ngOnInit(): void {
     
@@ -68,6 +69,7 @@ export class FacilitiesComponent {
      this.isClicked = false;
    }
 
+   
 
 }
 

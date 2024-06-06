@@ -2,7 +2,7 @@
 <div class="row">
   <app-logo></app-logo>
 
-  <!-- contact us -->
+  <!-- welcome section -->
   <div class="container-fluid py-5 mb_5">
     <div class="container">
       <div class="row gap-5 mx-auto align-items-center justify-content-between">
@@ -36,7 +36,7 @@
       </div>
     </div>
   </div>
-  <!-- Trust details -->
+  <!-- details -->
 <div class="container-fluid pt-5 mb_5">
   <div class="container align-items-center">
     <div class="text-center mb-5">
@@ -62,7 +62,7 @@
             </li>
             <li>
               <span class="text_primary fw-bold text-sm">By Phone: </span>
-              <span class="text-secondary text-sm">Call us at [your phone number] for more details and reservations.</span>
+              <span class="text-secondary text-sm">Call us at <a [href]="'tel:' + aboutDetail.bookingNumber" class="text_primary text-decoration-underline">{{ aboutDetail.bookingNumber }}</a> for more details and reservations.</span>
             </li>
           </ul>
         </div>
@@ -79,7 +79,7 @@
           <div class="col-12 mb-3">
             <iframe class="w-100"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.859032466161!2d73.69243407458963!3d24.559533057234457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967ef9ca7d7f289%3A0xf44cc2fa1931c68!2sAgrawal%20Dharmshala!5e0!3m2!1sen!2sin!4v1713183809121!5m2!1sen!2sin"
-               style="border:0;" allowfullscreen="" loading="lazy"
+               style="border:0;" allowfullscreen="" 
               referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>

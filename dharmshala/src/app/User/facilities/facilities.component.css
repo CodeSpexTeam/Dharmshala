@@ -36,7 +36,6 @@
     height: 50px;
     line-height: 20px;
     transition: background-color 0.3s;
-    margin-right: 22%;
     }
    
     .overlay-content >img  {
@@ -46,4 +45,24 @@
     .facilityname:hover{
         cursor: pointer;
         
+    }
+
+
+    .small-img {
+       max-width: 100px;
+       width: 100%;
+    }
+
+    .small-img:hover {
+        cursor: pointer;
+    }
+
+    .contact-icon {
+        font-size: 30px;
+        margin-bottom: 1rem;
+        color: #dc3545;
+    }
+
+    .info-card {
+        border-left: 8px solid #dc3545 !important;
     }

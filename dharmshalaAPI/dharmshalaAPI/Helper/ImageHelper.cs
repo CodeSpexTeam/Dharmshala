@@ -9,9 +9,11 @@
                 // Generate a unique filename
                 string fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
 
-                // Create a directory if it doesn't exist (adjust path as needed)
-                string uploadsPath = @"D:\CodespexTeam Project\Dharmshala\Dharmshala\dharmshala\src\assets";
+                string uploadsPath = @"C:\Users\immuk\source\repos\Dharmshala\dharmshala\src\assets\UploadedImages";
 
+                // Create a directory if it doesn't exist (adjust path as needed)
+                if (!Directory.Exists(uploadsPath))
+                    Directory.CreateDirectory(uploadsPath);
 
                 // Save the image to the uploads folder
                 string filePath = Path.Combine(uploadsPath, fileName);
@@ -21,7 +23,7 @@
                 }
 
                 // Return the relative path to the image (adjust as needed)
-                return Path.Combine("assets", fileName);
+                return fileName;
             }
             catch (Exception ex)
             {

@@ -4,6 +4,7 @@ import { ProjectserviceService } from '../../admin service/projectservice/projec
 import { ToastrService } from 'ngx-toastr';
 
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-projects',
@@ -20,6 +21,7 @@ export class ProjectsComponent {
   isClicked:boolean = false;
   clickedImageSrc:string|undefined;
   selectedFile: File | undefined;
+  uploadedPath= environment.UploadedFilePath;
   
 
   ngOnInit(): void {

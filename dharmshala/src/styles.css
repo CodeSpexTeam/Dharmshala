@@ -57,7 +57,7 @@ textarea {
 }
 
 .secondary-bg {
-    background-color: #fff3cd;
+    background-color: #fff3cd !important;
 }
 
 .text_secondry {

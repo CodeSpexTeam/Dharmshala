@@ -2,11 +2,13 @@
     <div class="row d-flex justify-content-center">
         <div class="col-6">
             <h3>Add Projects</h3>
-            <form #addProject="ngForm" (ngSubmit)="OnSubmitProjects(addProject.value)" >
+            <form [formGroup]="projectForm" (ngSubmit)="OnSubmitProjects()" >
                 <div class="mb-3">
                     <label for="title" class="form-label">Projects</label>
-                    <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp" ngModel>
-                   
+                    <input type="text" class="form-control" name="title" id="title" formControlName="title">
+                    <div *ngIf="isSubmitted || (f['title'].invalid && f['title'].touched)" class="text-danger">
+                        Please enter a title.
+                      </div>
                 </div>
 
                 <div class="mb-3">
@@ -16,7 +18,10 @@
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="description" name="description" id="description" cols="30" rows="5" class="form-control" ngModel></textarea>
+                    <textarea name="description" name="description" id="description" class="form-control" formControlName="description"></textarea>
+                    <div *ngIf="isSubmitted || (f['description'].invalid && f['description'].touched)" class="text-danger">
+                        Please enter a description.
+                      </div>
                 </div>
                 
                 <button type="submit" class="btn submit-btn">Submit</button>

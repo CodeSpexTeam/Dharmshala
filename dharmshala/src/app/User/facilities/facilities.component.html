@@ -1,82 +1,141 @@
-<!-- <app-user-nav></app-user-nav> -->
-<!-- <app-logo></app-logo> -->
 <div class="primary-background heading-div text-white mb_5">
   <h2>Facilities</h2>
 </div>
-<div class="container my-5" >
-    <div class="row d-flex justify-content-center align-item-center">
-      <div class="col-8">
-        <h4>Facilities</h4>
-        <div class="row" *ngFor="let group of facilityObjectData let indexOfelement=index; " >
-            <table>
-                <thead>
-                    <tr>
-                        <td style="width: 400px;">{{group[0].facilityName}}</td>
-                      <td>Tariff</td>
-                    </tr>
-                </thead>
-                <tbody >
-                   <tr *ngFor="let Facility of group">
-                        <td >
-                            <span class="facilityname" style="text-decoration: underline; color: #B51B1B;  " (click)="onImageClick(Facility.image)">{{Facility.description}}</span>
-                        </td>
-                        <td>Rs.  {{Facility.fees}}/- Per Room Per Day</td>
-                    </tr>
-                  
-                </tbody>
-            </table>
-            <div class="my-2"></div>
 
+<!-- facilities details -->
+<div class="container-fluid py-5 ">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 class="fw-bold text_primary mb-3">Facilities we have</h4>
+    </div>
+    <div class="row">
+      <div class="col-12" *ngFor="let group of facilityObjectData let indexOfelement=index; ">
+        <div class="mb-3">
+          <h5 class="fw-bold text_primary mb-3 text-capitalize">
+            {{ group[0].facilityName }}
+            <small class="text-black fw-normal text-xs" *ngIf="group[0].facilityName == 'kitchen'">(
+              <span class="text_primary">Note: </span> Cleaning charges <span class="text_primary"> Rs. 500/-(per
+                day)</span>
+              )</small>
+          </h5>
         </div>
-        <br>
-        <br>
-        <div class="row">
-            <h5>Others</h5>
-            <p>It is an Ideal Place for Merriage. Packages are Available for Details Contact Manager.</p>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+          <div class="col" *ngFor="let Facility of group">
+            <div class="card mb-5 border-0 shadow-sm h-100">
+              <div class="card-body d-flex align-item-center gap-4">
+                <img [src]="'/assets/UploadedImages/' +Facility.image" alt="agrawal dharamshala facility images"
+                  class="small-img" (click)="onImageClick(Facility.image)">
+                <div class="d-flex flex-column align-item-center justify-content-center">
+                  <p class="mb-2">{{ Facility.description }}</p>
+                  <p>
+                    <span class="text_primary">Rs. {{ Facility.fees }}/- &nbsp;</span>
+                    <span *ngIf="group[0].facilityName == 'room'; else otherContent">Per Person Per Day</span>
+                    <ng-template #otherContent>
+                      <span>Per Day</span>
+                    </ng-template>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="row">
-            <h5>Provisions</h5>
-            <p>100% Power backup available. Noiseless DG Set is available in case of power failure. The charges for diseal is Rs. 1600 /- Per hour.</p>
-            <p>People Staying in A/C Double Bed Room are Provided Towel, Soap etc.</p>
-            <p>Vehicles can be parked safely in parking space.</p>
-            <p>Special Rates for Groups of School, College Student Available.</p>
-
-        </div>
-
-        <div class="row">
-            <h5>For booking contact :-</h5><br>
-            <h5>Om Bansal / Agrawal :- +91 9829040849</h5>
-        </div>
-       
-      
       </div>
     </div>
-
-  
-    
+  </div>
 </div>
-<!-- moalda -->
 
+<!-- provisions -->
+<div class="container-fluid py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 class="fw-bold text_primary mb-3">Provisions</h4>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4 mb-5">
+      <div class="col">
+        <div class="card h-100 p-4 text-center gap-2">
+          <i class="fa-solid fa-bolt contact-icon mb-3"></i>
+          <h5 class="text_primary">Uninterrupted Comfort</h5>
+          <div class="text-sm">
+            <p class="mb-2">100% Power backup available. Noiseless DG Set is available in case of power failure. </p>
+            <p class="text-xs">
+              <span class="text_primary">(Note: </span>
+              Diseal Charges <span class="text_primary">Rs. 1600 /- Per hour)</span>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 p-4 text-center gap-2">
+          <i class="fa-solid fa-square-parking contact-icon mb-3"></i>
+          <h5 class="text_primary">Basic Amenities</h5>
+          <div class="text-sm">
+            <p>People staying in an A/C double bed room are provided with a towel, soap, shampoo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 p-4 text-center gap-2">
+          <i class="fa-solid fa-square-parking contact-icon mb-3"></i>
+          <h5 class="text_primary">Security Measures</h5>
+          <div class="text-sm">
+            <p>Vehicles can be parked safely in the parking space, which is well-lit and regularly maintained for cleanliness and safety.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 p-4 text-center gap-2">
+          <i class="fa-solid fa-percent contact-icon mb-3"></i>
+          <h5 class="text_primary">Discount Details</h5>
+          <div class="text-sm">
+            <p>We offer exclusive discounts for groups of school and college students. Take advantage of our special rates to make your event more affordable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- other details -->
+<div class="container-fluid py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 class="fw-bold text_primary mb-3">Additional Information</h4>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+      <div class="col">
+        <div class="card h-100 p-4 shadow info-card border-0 align-item-center justify-content-center">
+         <p>
+          6000 sq. feet of versatile space, perfect for hosting events, conferences, and more.
+         </p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 p-4 shadow info-card border-0 align-item-center justify-content-center">
+         <p>
+          It is an ideal place for marriage, offering comprehensive packages tailored to your needs.  <br> For details, please contact <span class="text_primary">Om Bansal / Agrawal :- +91 9829040849</span>
+         </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- modal -->
 <div class="overlay-backdrop" *ngIf="isClicked"></div>
-<div class="overlay" *ngIf="isClicked">
-  <div class="row">
-    <div class="col-xl-12 mt-3">
-      <button type="button" class="close float-end" aria-label="Close" (click)="closeOverlay($event)">
-        <i class="bi bi-x-circle"></i>
-      </button>
+<div class="overlay d-flex align-item-center justify-content-center" *ngIf="isClicked">
+  <div class="bg-white w-50 rounded">
+    <div class="row">
+      <div class="col-12 mt-3 pe-5">
+        <button type="button" class="close float-end" aria-label="Close" (click)="closeOverlay($event)">
+          <i class="bi bi-x-circle"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center ">
+      <div class="col-12 d-flex align-item-center justify-content-center px-5 pt-3">
+        <img [src]="'/assets/UploadedImages/' +clickedImageSrc" alt="" class="img-fluid">
+      </div>
     </div>
   </div>
-  <div class="row d-flex justify-content-center ">
-    <div class="col-6">
-        <img [src]="clickedImageSrc" alt="" class="img-fluid">
-    </div>
-  </div>
-  
 </div>
-
-
-
-
-
-<!-- <app-footer></app-footer> -->

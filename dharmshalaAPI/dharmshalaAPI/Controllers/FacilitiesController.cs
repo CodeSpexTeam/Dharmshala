@@ -28,10 +28,10 @@ namespace dharmshalaAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Facility>>> GetFacilities()
         {
-          if (_context.Facilities == null)
-          {
-              return NotFound();
-          }
+            if (_context.Facilities == null)
+            {
+                return NotFound();
+            }
             return await _context.Facilities.ToListAsync();
         }
 
@@ -39,10 +39,10 @@ namespace dharmshalaAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Facility>> GetFacility(int id)
         {
-          if (_context.Facilities == null)
-          {
-              return NotFound();
-          }
+            if (_context.Facilities == null)
+            {
+                return NotFound();
+            }
             var facility = await _context.Facilities.FindAsync(id);
 
             if (facility == null)
@@ -60,7 +60,7 @@ namespace dharmshalaAPI.Controllers
         {
             if (id != facilityModel.Id)
             {
-                return BadRequest(new {Message="Not Found!"});
+                return BadRequest(new { Message = "Not Found!" });
             }
 
             IFormFile imageName = facilityModel.ImageName;
@@ -102,7 +102,7 @@ namespace dharmshalaAPI.Controllers
 
             _context.Entry(facility).State = EntityState.Modified;
 
-           // _context.Update(facility);
+            // _context.Update(facility);
 
             try
             {
@@ -120,7 +120,7 @@ namespace dharmshalaAPI.Controllers
                 }
             }
 
-            return Ok(new { Message = "Data has been updated!" }); 
+            return Ok(new { Message = "Data has been updated!" });
         }
 
         // POST: api/Facilities
@@ -128,10 +128,10 @@ namespace dharmshalaAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Facility>> PostFacility([FromForm] FacilityModel facilityModel)
         {
-          if (_context.Facilities == null)
-          {
-              return Problem("Entity set 'AppDbContext.Facilities'  is null.");
-          }
+            if (_context.Facilities == null)
+            {
+                return Problem("Entity set 'AppDbContext.Facilities'  is null.");
+            }
 
             IFormFile imageName = facilityModel.ImageName;
 
@@ -149,12 +149,12 @@ namespace dharmshalaAPI.Controllers
             try
             {
                 ImageHelper imagehelper = new ImageHelper();
-            var image= await imagehelper.StoreImage(imageName);
+                var image = await imagehelper.StoreImage(imageName);
 
-            if (imageName == null)
-            {
-                return BadRequest("Image Storage Failed!");
-            }
+                if (image == null)
+                {
+                    return BadRequest("Image Storage Failed!");
+                }
 
 
                 Facility facility = new Facility()
@@ -169,10 +169,10 @@ namespace dharmshalaAPI.Controllers
 
                 };
 
-           _context.Facilities.Add(facility);
-            await _context.SaveChangesAsync();
+                _context.Facilities.Add(facility);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFacility", new { id = facility.Id}, facility);
+                return CreatedAtAction("GetFacility", new { id = facility.Id }, facility);
 
             }
             catch
@@ -212,21 +212,21 @@ namespace dharmshalaAPI.Controllers
             var facility = await _context.Facilities.FindAsync(id);
             if (facility == null)
             {
-                return BadRequest(new {Message="Not Found Data"});
+                return BadRequest(new { Message = "Not Found Data" });
             }
 
 
             RemoveFile removeFile = new RemoveFile();
 
-            var test =  removeFile.RemoveFileFromFolder(@"D:\CodespexTeam Project\Dharmshala\Dharmshala\dharmshala\src\"+ facility.Image);
+            var test = removeFile.RemoveFileFromFolder(@"D:\CodespexTeam Project\Dharmshala\Dharmshala\dharmshala\src\" + facility.Image);
 
             facility.Image = null;
-            facility.UpdatedDate=DateTime.Now;
+            facility.UpdatedDate = DateTime.Now;
 
             _context.Facilities.Update(facility);
             await _context.SaveChangesAsync();
 
-            
+
 
             return Ok(facility);
         }

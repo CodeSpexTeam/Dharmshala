@@ -1,41 +1,48 @@
 <!-- <app-user-nav></app-user-nav> -->
-<app-logo></app-logo>
-<div class="container my-5" >
-    <div class="row d-flex justify-content-center">
-        <div class="col-8">
-            <h4>Other <span class="text-danger">Projects</span></h4><br>
-            <div class="row">
-                <h5>Welfare Activites for General Public</h5>
-                <p>All the following welfare activities are open for all the sections of Society. There is no  discrimination on the  basis of Religion, Caste, Creed, Sex etc.</p>
-            </div>
-
-            <div class="container" *ngFor="let item of ProjectsList">
-                <div class="row d-flex py-3 ">
-                    <h4 class="text-danger">{{item.title}}</h4>
-                    <div class="col">
-                        <img src={{item.image}} alt={{item.image}} width="200px" height="150px">
-                    </div>
-                    <div class="col">
-                        <span>
-                            {{item.description}}
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <h4>Future Projects</h4>
-                <ul>
-                    <li class="text-danger">Old Age Home</li>
-                    <li class="text-danger">Girls Hostel</li>
-                </ul>
-            </div>
- 
-        </div>
-    </div>
-
-  
-    
+<div class="primary-background heading-div text-white">
+  <h2>Welfare Activites for General Public</h2>
 </div>
 
-<!-- <app-footer></app-footer> -->
+
+<div class="container-fluid py-5">
+  <div class="container d-flex align-item-center justify-content-center">
+    <div class="card border-0 w-75 shadow secondary-bg p-4">
+      <h5 class="text_primary text-center lh-lg">
+        <i class="fa-solid fa-quote-left quotes-icon"></i>
+        All the following welfare activities are open to all sections of society, ensuring inclusivity and equality. We
+        do not discriminate on the basis of religion, caste, creed, sex, or any other characteristic.
+        <i class="fa-solid fa-quote-right quotes-icon"></i>
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid py-5">
+  <div class="container d-flex align-item-center justify-content-center">
+    <div class="row gap-5">
+      <div class="col-12 d-flex justify-content-center align-item-center" *ngFor="let item of ProjectsList">
+        <div class="card w-75 p-4 border-0 shadow">
+          <h4 class="text_primary mb-5">{{ item.title }}</h4>
+          <div class="d-flex flex-column flex-md-row align-item-center gap-4">
+            <div class="img-div">
+              <img [src]="uploadedPath + item.image" alt="agrawal dhramashala project Images" class="rounded">
+            </div>
+            <div class="d-flex align-item-center justify-content-center">
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <h4 class="text_primary mb-5">Future Projects</h4>
+        <p class="mb-2"><i class="fa-solid fa-circle text-xs"></i> Old Age Home</p>
+        <p><i class="fa-solid fa-circle text-xs"></i> Girls Hostel</p>
+    </div>
+  </div>
+  
